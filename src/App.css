@@ -1,0 +1,9 @@
+.app-container {
+    display:flex;
+    flex-direction: column;
+}
+
+.homeComponent {
+    height: 500px;
+    border: red solid 4px;
+}
