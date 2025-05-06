@@ -3,7 +3,7 @@ import styles from '../css-components/HeroArea.module.css';
 export default function HeroArea(){
     return(
         <div className={`global-HeroArea homeComponent ${styles.heroArea}`}>
-            <h1>Hero Area</h1>
+            {/* <h1>Hero Area</h1> */}
         </div>
     )
 }

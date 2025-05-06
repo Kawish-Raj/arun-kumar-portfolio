@@ -5,3 +5,22 @@
     top:10px;
     left: 10px;
 }
+
+.sideBar ul {
+    list-style: none;
+    padding:0px;
+}
+
+.sideBar li {
+    transition: transform 0.2s ease-out;
+    text-align: center
+}
+
+.sideBar li:hover {
+    transform: scale(2.05);
+    cursor: pointer;
+}
+
+.fadeIn {
+    transform: scale(2.05);
+}
