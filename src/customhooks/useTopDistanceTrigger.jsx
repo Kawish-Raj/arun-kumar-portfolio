@@ -17,10 +17,7 @@ function useTopDistanceTrigger(callback, index , distanceRatio = 0.3) {
       if (prevDistanceRatio.current >= distanceRatio && currDistanceRatio <= distanceRatio) {
         callback(sideBarVals[index]);
       } else if (prevDistanceRatio.current <= distanceRatio && currDistanceRatio >= distanceRatio) {
-        if(index === 0){
-            callback(sideBarVals[index])
-        }
-        callback(sideBarVals[index-1]);
+        index === 0 ? callback(null) : callback(sideBarVals[index-1]);
       }
       prevDistanceRatio.current = currDistanceRatio;
     }
