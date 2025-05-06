@@ -1,9 +1,6 @@
 import styles from '../css-components/SideBar.module.css';
 
 export default function SideBar({isVisible}){
-    if(isVisible){
-        console.log(isVisible);
-    }
     return(
         <div className={`global-SideBar homeComponent ${styles.sideBar}`}>
             <h3>Side-Bar</h3>
