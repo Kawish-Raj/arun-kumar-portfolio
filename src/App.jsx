@@ -9,15 +9,15 @@ import { useState } from 'react'
 
 function App() {
 
-  const [isVisible, setIsVisible] = useState(false);
+  const [isMainContent, setIsMainContent] = useState(null);
 
   return (
     <div className = "app-container">
-      <SideBar isVisible = {isVisible}/>
+      <SideBar isMainContent = {isMainContent}/>
       <HeroArea />
-      <AboutMe />
-      <Qualifications setIsVisible={setIsVisible}/>
-      <Work />
+      <AboutMe setIsMainContent = {setIsMainContent}/>
+      <Qualifications setIsMainContent={setIsMainContent}/>
+      <Work setIsMainContent = {setIsMainContent}/>
       <Footer />
     </div>
   )
