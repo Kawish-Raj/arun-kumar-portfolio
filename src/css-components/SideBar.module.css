@@ -20,6 +20,8 @@
 .sideBar li {
     transition: transform 0.2s ease-out;
     margin: 0px 6px 0px 6px;
+    /* display: flex;
+    flex-direction: column; */
 }
 
 .sideBar li:hover {
@@ -36,10 +38,18 @@
     text-decoration: none;
     font-size: 32px;
     font-weight: bold;
+    position: relative;
+    top: 12px;
 }
 
 .sideBar h3 {
     border: var(--text) solid 4px;
     border-radius: 30px;
     width: 70px;
+}
+
+.underline {
+    height:10px;
+    width: 100%;
+    background-color: var(--primary);
 }
