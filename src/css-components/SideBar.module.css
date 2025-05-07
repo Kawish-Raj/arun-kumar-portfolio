@@ -3,8 +3,8 @@
     width: 200px;   
     position:fixed;
     top:40px;
-    left: 20px;
-    border: var(--primary) solid 2px;
+    left: 40px;
+    /* border: var(--primary) solid 2px; */
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -25,12 +25,12 @@
 }
 
 .sideBar li:hover {
-    transform: scale(2.05);
+    transform: scale(1.2);
     cursor: pointer;
 }
 
 .fadeIn {
-    transform: scale(2.05);
+    transform: scale(1.2);
 }
 
 .sideBar a {
@@ -38,8 +38,6 @@
     text-decoration: none;
     font-size: 32px;
     font-weight: bold;
-    position: relative;
-    top: 12px;
 }
 
 .sideBar h3 {
@@ -52,4 +50,17 @@
     height:10px;
     width: 100%;
     background-color: var(--primary);
+    position:relative;
+    z-index: -1;
+    bottom:13px;
+    transition: transform 0.4s ease-out;
+    transform-origin: bottom;
+}
+
+a:hover + .underline {
+    transform: scaleY(2.5);
+}
+
+.fillUp {
+    transform: scaleY(2.5);
 }
