@@ -3,7 +3,7 @@ import styles from '../css-components/SideBar.module.css';
 export default function SideBar({isMainContent}){
     return(
         <div className={`global-SideBar homeComponent ${styles.sideBar}`}>
-            <h3>Side-Bar</h3>
+            <h3>AK</h3>
             <ul>
                 <li className={isMainContent === "about me" ? 
                     `${styles.fadeIn}`: ''}><a href='#about-id'>About Me</a></li>
