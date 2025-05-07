@@ -2,8 +2,8 @@
     height: 200px;
     width: 200px;   
     position:fixed;
-    top:40px;
-    left: 40px;
+    top:60px;
+    left: 60px;
     /* border: var(--primary) solid 2px; */
     text-align: center;
     display: flex;
@@ -18,19 +18,27 @@
 }
 
 .sideBar li {
-    transition: transform 0.2s ease-out;
-    margin: 0px 6px 0px 6px;
-    /* display: flex;
-    flex-direction: column; */
+    transition: transform 0.2s ease-out, background-size 0.2s ease-out,
+    border-radius 0.2s ease-out;
+    margin: 8px;
+    background-image: linear-gradient(var(--primary));
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 80% 20%;
 }
 
 .sideBar li:hover {
     transform: scale(1.2);
     cursor: pointer;
+    background-size: 100% 100%;
+    border-radius: 16px;
 }
 
-.fadeIn {
+.sideBar li.fadeIn {
     transform: scale(1.2);
+    background-size: 100% 100%;
+    border-radius: 16px;
+
 }
 
 .sideBar a {
