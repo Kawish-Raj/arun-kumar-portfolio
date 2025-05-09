@@ -1,0 +1,27 @@
+.heroArea {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hi {
+    font-family: 'IBM Plex Mono';
+    /* font-size: 44px; */
+    font-weight: 400;
+}
+
+.firstName {
+    margin-right: 12px;
+    font-style:italic;
+    -webkit-text-stroke-width:1px;
+    -webkit-text-stroke-color:var(--text);
+    color: transparent;
+}
+
+.secondName {
+    background: linear-gradient(to right, var(--primary), var(--accent));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}

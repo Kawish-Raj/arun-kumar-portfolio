@@ -67,38 +67,79 @@ button:focus-visible {
   }
 } */
 
-@import url('https://fonts.googleapis.com/css?family=Inter:700|Inter:400');
+@import url('https://fonts.googleapis.com/css?family=Croissant%20One:700|Croissant%20One:400');
 
 body {
-  font-family: 'Inter';
+  font-family: 'Croissant One';
   font-weight: 400;
 }
 
-h1, h2, h3, h4, h5 {
-  font-family: 'Inter';
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Croissant One';
   font-weight: 700;
 }
 
-html {font-size: 100%;} /* 16px */
+html {
+  font-size: 100%;
+}
 
-h1 {font-size: 4.210rem; /* 67.36px */}
+/* 16px */
 
-h2 {font-size: 3.158rem; /* 50.56px */}
+h1 {
+  font-size: 4.210rem;
+  /* 67.36px */
+}
 
-h3 {font-size: 2.369rem; /* 37.92px */}
+h2 {
+  font-size: 3.158rem;
+  /* 50.56px */
+}
 
-h4 {font-size: 1.777rem; /* 28.48px */}
+h3 {
+  font-size: 2.369rem;
+  /* 37.92px */
+}
 
-h5 {font-size: 1.333rem; /* 21.28px */}
+h4 {
+  font-size: 1.777rem;
+  /* 28.48px */
+}
 
-small {font-size: 0.750rem; /* 12px */}
+h5 {
+  font-size: 1.333rem;
+  /* 21.28px */
+}
+
+small {
+  font-size: 0.750rem;
+  /* 12px */
+}
 
 :root {
-  --text: #111117;
+  /* --text: #111117;
   --background: #D2D0A0;
   --primary: #537D5D;
   --secondary: #9EBC8A;
-  --accent: #73946B;
+  --accent: #73946B; */
+
+  /* #### BLUE  ##### */
+  /* --text: #050315;
+  --background: #fbfbfe;
+  --primary: #2f27ce;
+  --secondary: #dedcff;
+  --accent: #433bff; */
+
+  --text: #020e19;
+  --background: #f0f8fe;
+  --primary: #298aed;
+  --secondary: #9382f4;
+  --accent: #8c4cf0;
+
+
 
   background-color: var(--background);
 
