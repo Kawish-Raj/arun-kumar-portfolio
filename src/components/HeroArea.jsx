@@ -1,10 +1,11 @@
 import styles from '../css-components/HeroArea.module.css';
-import ScrollLetter from './ScrollLetter';
 import { useEffect, useRef, createRef } from 'react';
 
 export default function HeroArea() {
-  const speeds = [0.3, -1, 0.7, -1.3, 0.5]; // can randomize or customize more
-  const letters = ['B', 'u', 'i', 'l', 'd', 'i', 'n', 'g'];
+  const speeds = [0.3, -0.2, 0.7, -1.3, 0.5]; // can randomize or customize more
+  const word1 = ['B', 'u', 'i', 'l', 'd', 'i', 'n', 'g'];
+  const word2 = ['T', 'o', 'm', 'o', 'r', 'r', 'o', 'w', "'", 's']
+  const letters = [...word1, ...word2]
   const rotationSpeeds = [0.01, 0.03, -0.02, 0.009, -0.01 ];
   
   // Create a list of refs dynamically for each letter
@@ -33,15 +34,26 @@ export default function HeroArea() {
   return (
     <div className={`global-HeroArea homeComponent ${styles.heroArea}`}>
       <div className={styles.tagLineContainer}>
-        {letters.map((letter, idx) => (
-          <ScrollLetter
+        <div className={styles.wordContainer}>
+        {word1.map((letter, idx) => (
+          <div
             key={idx}
-            ref={refs.current[idx]}
-            letter={letter}
-          />
+            ref={refs.current[idx]}>{letter}</div>
         ))}
+        </div>
+        <div className={styles.wordContainer}>
+        {word2.map((letter, idx) => (
+          <div
+            key={idx + (word1.length - 1)}
+            ref={refs.current[idx + (word1.length - 1)]}>{letter}</div>
+        ))}
+        </div>
+        
+
+
+
         {/* <div>ing</div> */}
-        <div> Tomorrow's</div>
+        {/* <div> Tomorrow's</div> */}
         <div> Schools</div>
         <div> Today</div>
       </div>

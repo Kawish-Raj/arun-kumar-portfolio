@@ -16,9 +16,13 @@
     padding-bottom: 50px;
 }
 
-/* .tagLineContainer div {
-    transition: transform 0s ease-out;
-} */
+.tagLineContainer div div {
+    transition: transform 0.3s ease-out;
+}
+.wordContainer {
+    display:flex;
+    margin-right: 50px;
+}
 
 
 
