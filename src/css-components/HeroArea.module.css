@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: flex-end;
     height: 100vh;
-    margin-bottom: 500px;
+    margin-bottom: 20vh;
 }
 
 .tagLineContainer {
@@ -24,69 +24,6 @@
     margin-right: 50px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* .hi {
-    font-family: 'IBM Plex Mono';
-    font-size: 44px;
-    font-weight: 400;
-    grid-area: hi;
+.wordContainer div {
+    z-index: -3;
 }
-
-.firstName {
-    margin-right: 12px;
-    font-style:italic;
-    -webkit-text-stroke-width:1px;
-    -webkit-text-stroke-color:var(--text);
-    color: transparent;
-    grid-area:arun;
-}
-
-.secondName {
-    background: linear-gradient(to right, var(--primary), var(--accent));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
-    grid-area:kumar;
-}
-
-.profileImage {
-    height:300px;
-    width: 300px;
-}
-
-
-.introGridContainer {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(50px, auto));
-    grid-template-rows: minmax(10px, auto) repeat(3, 75px);
-    grid-template-areas: 
-    "empty image"
-    "hi image"
-    "im image"
-    "arun kumar";
-}
-
-.profileImageContainer {
-    grid-area: image;
-}
-
-.im {
-    grid-area: im;
-}
-
-.empty {
-    grid-area: empty;
-} */
