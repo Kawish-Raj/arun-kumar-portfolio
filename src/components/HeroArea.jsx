@@ -5,6 +5,7 @@ import { useEffect, useRef, createRef } from 'react';
 export default function HeroArea() {
   const speeds = [0.3, -1, 0.7, -1.3, 0.5]; // can randomize or customize more
   const letters = ['B', 'u', 'i', 'l', 'd', 'i', 'n', 'g'];
+  const rotationSpeeds = [0.01, 0.03, -0.02, 0.009, -0.01 ];
   
   // Create a list of refs dynamically for each letter
   const refs = useRef(letters.map(() => createRef()));
@@ -17,8 +18,9 @@ export default function HeroArea() {
       if (scrollY < viewportHeight) {
         refs.current.forEach((ref, idx) => {
           const speed = speeds[idx % speeds.length];
+          const rotationSpeed = rotationSpeeds[idx % rotationSpeeds.length];
           if (ref.current) {
-            ref.current.style.transform = `translateY(${scrollY * speed}px)`;
+            ref.current.style.transform = `translateY(${scrollY * speed}px) rotate(${scrollY * rotationSpeed}deg)`;
           }
         });
       }
