@@ -3,13 +3,36 @@
     flex-direction: column;
     justify-content: flex-end;
     height: 100vh;
+    margin-bottom: 500px;
 }
 
 .tagLineContainer {
     font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    font-size: 210px;
+    font-size: 180px;
     font-weight: 600;
+    display:flex;
+    flex-wrap: wrap;
+    padding-left: 60px;
+    padding-bottom: 50px;
 }
+
+/* .tagLineContainer div {
+    transition: transform 0s ease-out;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* .hi {
     font-family: 'IBM Plex Mono';
     font-size: 44px;
