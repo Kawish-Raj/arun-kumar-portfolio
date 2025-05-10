@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: flex-end;
     height: 100vh;
-    margin-bottom: 20vh;
+    /* margin-bottom: 20vh; */
 }
 
 .tagLineContainer {
@@ -16,9 +16,6 @@
     padding-bottom: 50px;
 }
 
-.tagLineContainer div div {
-    transition: transform 0.3s ease-out;
-}
 .wordContainer {
     display:flex;
     margin-right: 50px;
@@ -26,4 +23,6 @@
 
 .wordContainer div {
     z-index: -3;
+    transition: transform 0.3s ease-out;
+
 }

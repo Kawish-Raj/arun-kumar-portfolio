@@ -5,4 +5,22 @@ const words = [
     ['T', 'o', 'd', 'a', 'y']
 ]
 
+export const extraLetters = [
+    'k',
+    'a',
+    'w',
+    'i',
+    's',
+    'h',
+    'e',
+    'a',
+    's',
+    't',
+    'e',
+    'r',
+    'e',
+    'g',
+    'g'
+]
+
 export default words;

@@ -1,9 +1,10 @@
 import styles from '../css-components/HeroArea.module.css';
 import { useEffect, useRef, createRef } from 'react';
 import words from '../assets/Words';
+import ScrollExtraLetters from './ScrollExtraLetters';
 
 export default function HeroArea() {
-    const speeds = [0.3, -0.2, 0.7, -1.3, 0.5]; // can randomize or customize more
+    const speeds = [0.3, -0.2, 0.7, -1.3, 0.5, -0.7]; // can randomize or customize more
     const letters = [...words[0], ...words[1], ...words[2], ...words[3]]
     const rotationSpeeds = [0.01, 0.03, -0.02, 0.009, -0.01];
 
@@ -31,6 +32,7 @@ export default function HeroArea() {
     }, []);
 
     return (
+        <>
         <div className={`global-HeroArea homeComponent ${styles.heroArea}`}>
             <div className={styles.tagLineContainer}>
                 {words.map((word, wordIdx) => (
@@ -47,5 +49,7 @@ export default function HeroArea() {
                 ))}
             </div>
         </div>
+        <ScrollExtraLetters/>
+        </>
     );
 }
