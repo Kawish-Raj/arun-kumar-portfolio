@@ -2,6 +2,7 @@ import styles from '../css-components/HeroArea.module.css';
 import { useEffect, useRef, createRef } from 'react';
 import words from '../assets/Words';
 import ScrollExtraLetters from './ScrollExtraLetters';
+import profilePhoto from '../assets/zach.png'
 
 export default function HeroArea() {
     const speeds = [0.3, -0.2, 0.7, -1.3, 0.5, -0.7]; // can randomize or customize more
@@ -33,23 +34,26 @@ export default function HeroArea() {
 
     return (
         <>
-        <div className={`global-HeroArea homeComponent ${styles.heroArea}`}>
-            <div className={styles.tagLineContainer}>
-                {words.map((word, wordIdx) => (
-                    <div key={wordIdx} className={styles.wordContainer}>
-                        {word.map((letter, idx) => {
-                            const flatIndex = words.slice(0, wordIdx).reduce((sum, w) => sum + w.length, 0) + idx;
-                            return (
-                                <div key={flatIndex} ref={refs.current[flatIndex]}>
-                                    {letter}
-                                </div>
-                            );
-                        })}
-                    </div>
-                ))}
+            <div className={`global-HeroArea homeComponent ${styles.heroArea}`}>
+                <div className={styles.profilePhotoContainer}>
+                    <img className={styles.profilePhoto} src={profilePhoto} alt='profile photo'></img>
+                </div>
+                <div className={styles.tagLineContainer}>
+                    {words.map((word, wordIdx) => (
+                        <div key={wordIdx} className={styles.wordContainer}>
+                            {word.map((letter, idx) => {
+                                const flatIndex = words.slice(0, wordIdx).reduce((sum, w) => sum + w.length, 0) + idx;
+                                return (
+                                    <div key={flatIndex} ref={refs.current[flatIndex]}>
+                                        {letter}
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    ))}
+                </div>
             </div>
-        </div>
-        <ScrollExtraLetters/>
+            <ScrollExtraLetters />
         </>
     );
 }

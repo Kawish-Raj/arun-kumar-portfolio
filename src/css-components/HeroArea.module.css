@@ -22,7 +22,7 @@
 }
 
 .wordContainer div {
-    z-index: -3;
+    /* z-index: -3; */
     transition: transform 0.3s ease-out;
 }
 
@@ -30,3 +30,22 @@
     justify-content: flex-end;
     margin-bottom: 20vh;
 }
+
+.profilePhotoContainer {
+    width: 100%;
+    display:flex;
+    justify-content: center;
+}
+
+.profilePhoto {
+    height:350px;
+    width:350px;
+    border-radius: 50%;
+    border: black solid 10px;
+    transition: border-color 0.2s ease-out;
+}
+
+.profilePhoto:hover{
+    border-color: rgb(53, 211, 153);
+}
+
