@@ -1,8 +1,8 @@
 .sideBar {
     height: 50px;
     width: 100%;
-    /* position:absolute; */
-    /* top:60px; */
+    position:sticky;
+    top:30px;
     /* left: 40px; */
     /* border: var(--primary) solid 2px; */
     text-align: center;
