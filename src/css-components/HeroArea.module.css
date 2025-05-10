@@ -1,13 +1,16 @@
 .heroArea {
     display:flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    padding-top: 60px;
+    height: 100vh;
 }
 
 .hi {
     font-family: 'IBM Plex Mono';
     /* font-size: 44px; */
     font-weight: 400;
+    grid-area: hi;
 }
 
 .firstName {
@@ -16,6 +19,7 @@
     -webkit-text-stroke-width:1px;
     -webkit-text-stroke-color:var(--text);
     color: transparent;
+    grid-area:arun;
 }
 
 .secondName {
@@ -24,4 +28,34 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
+    grid-area:kumar;
+}
+
+.profileImage {
+    height:300px;
+    width: 300px;
+}
+
+
+.introGridContainer {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(50px, auto));
+    grid-template-rows: minmax(10px, auto) repeat(3, 75px);
+    grid-template-areas: 
+    "empty image"
+    "hi image"
+    "im image"
+    "arun kumar";
+}
+
+.profileImageContainer {
+    grid-area: image;
+}
+
+.im {
+    grid-area: im;
+}
+
+.empty {
+    grid-area: empty;
 }
