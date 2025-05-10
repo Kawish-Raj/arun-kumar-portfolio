@@ -1,3 +1,12 @@
 .aboutMe {
     background-color: black;
+    color:white;
+    height: 100vh;
+}
+
+.aboutMe h1 {
+    text-align: center;
+    padding: 20px;
+    font-size:62px;
+    font-weight: 600;
 }
