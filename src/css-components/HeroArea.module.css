@@ -1,8 +1,7 @@
 .heroArea {
     display:flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding-top: 60px;
+    flex-direction: column;
+    justify-content: flex-end;
     height: 100vh;
 }
 

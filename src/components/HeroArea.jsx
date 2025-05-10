@@ -4,6 +4,12 @@ import demoPerson from '../assets/demo-person.png'
 export default function HeroArea() {
     return (
         <div className={`global-HeroArea homeComponent ${styles.heroArea}`}>
+            <div className={styles.tagLineContainer}>
+                <div>Building </div>
+                <div>Tomorrow's </div>
+                <div>Schools </div>
+                <div>Today</div>
+            </div>
             {/* <div className={`${styles.introGridContainer}`}>
                 <div className={styles.empty}></div>
                 <h1 className={styles.hi}>hi!</h1>
