@@ -24,5 +24,9 @@
 .wordContainer div {
     z-index: -3;
     transition: transform 0.3s ease-out;
+}
 
+.tagLineContainer.extraWordsContainer {
+    justify-content: flex-end;
+    margin-bottom: 20vh;
 }

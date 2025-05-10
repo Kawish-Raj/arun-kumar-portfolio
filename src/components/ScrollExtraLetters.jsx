@@ -12,7 +12,7 @@ export default function ScrollExtraLetters(){
                 const scrollY = window.scrollY;
                 const viewportHeight = window.innerHeight;
     
-                if (scrollY < (0.5 * viewportHeight)) {
+                if (scrollY < (0.7 * viewportHeight)) {
                     refs.current.forEach((ref, idx) => {
                         const speed = speeds[idx % speeds.length];
                         const rotationSpeed = rotationSpeeds[idx % rotationSpeeds.length];
@@ -28,7 +28,7 @@ export default function ScrollExtraLetters(){
         }, []);
     
     return(
-        <div className={styles.tagLineContainer}>
+        <div className={`${styles.tagLineContainer} ${styles.extraWordsContainer}`}>
             <div className={styles.wordContainer}>
                 {extraLetters.map((letter, idx) => {
                     return(

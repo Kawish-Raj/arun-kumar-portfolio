@@ -16,7 +16,7 @@ export default function HeroArea() {
             const scrollY = window.scrollY;
             const viewportHeight = window.innerHeight;
 
-            if (scrollY < (0.5 * viewportHeight)) {
+            if (scrollY < (0.7 * viewportHeight)) {
                 refs.current.forEach((ref, idx) => {
                     const speed = speeds[idx % speeds.length];
                     const rotationSpeed = rotationSpeeds[idx % rotationSpeeds.length];
