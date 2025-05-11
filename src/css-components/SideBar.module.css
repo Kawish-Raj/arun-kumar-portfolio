@@ -63,10 +63,16 @@
 
 
 
-.sideBar h3 {
+.sideBar .logoSideBar {
     border: var(--text) solid 4px;
     border-radius: 30px;
     width: 70px;
     font-size: 32px;
     font-weight: bold;
+}
+
+
+.sideBar.darkMode .logoSideBar {
+    color: white;
+    border-color: white;
 }
