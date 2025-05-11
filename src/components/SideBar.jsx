@@ -1,8 +1,10 @@
 import styles from '../css-components/SideBar.module.css';
 
-export default function SideBar({ isMainContent }) {
+export default function SideBar({ isMainContent, sideBarMode }) {
+    if(sideBarMode === 'dark-mode'){
+    }
     return (
-        <div className={`global-SideBar homeComponent ${styles.sideBar}`}>
+        <div className={`global-SideBar homeComponent ${styles.sideBar} ${sideBarMode === 'dark-mode' ? styles.darkMode : ''}`}>
             <div className={styles.sideBarContentContainer}>
             <h3 className={styles.logoSideBar}>AK</h3>
             <a className={isMainContent === "about me" ?

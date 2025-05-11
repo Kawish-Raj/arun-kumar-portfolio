@@ -10,12 +10,13 @@ import { useState } from 'react'
 function App() {
 
   const [isMainContent, setIsMainContent] = useState(null);
+  const [sideBarMode, setSideBarMode] = useState('light-mode');
 
   return (
     <div className = "app-container">
-      <SideBar isMainContent = {isMainContent}/>
+      <SideBar isMainContent = {isMainContent} sideBarMode={sideBarMode}/>
       <HeroArea />
-      <AboutMe setIsMainContent = {setIsMainContent}/>
+      <AboutMe setIsMainContent = {setIsMainContent} setSideBarMode={setSideBarMode}/>
       <Qualifications setIsMainContent={setIsMainContent}/>
       <Work setIsMainContent = {setIsMainContent}/>
       <Footer />

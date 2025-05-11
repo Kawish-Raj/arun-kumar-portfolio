@@ -43,6 +43,10 @@
     padding: 2px;
 }
 
+.sideBar.darkMode a {
+    color:white;
+}
+
 .sideBar a:hover {
     /* transform: scale(1.2); */
     cursor: pointer;
