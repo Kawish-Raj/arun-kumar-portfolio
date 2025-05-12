@@ -31,3 +31,8 @@
 html {
   scroll-behavior: smooth;
 }
+
+@font-face {
+  font-family: 'IBMPlexMono Nerd Font';
+  src: url('./assets/fonts/IBMPlexMono-Regular.ttf') format('truetype');
+}

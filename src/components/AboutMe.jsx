@@ -15,9 +15,9 @@ export default function AboutMe({ setIsMainContent, setSideBarMode }) {
         <div id="about-id" ref={setRefs} className={`global-AboutMe homeComponent ${styles.aboutMe}`}>
             <div className={`${styles.aboutMeCanvas}`}>
             <div className={`${styles.headingContainer}`}>
-                <div>hi.</div>
-                <div>i'm</div>
-                <div>arun kumar</div>
+                <div className={styles.headingWord}>hi.</div>
+                <div className={styles.headingWord}>i'm</div>
+                <div className={styles.headingWord}>arun kumar.</div>
             </div>
             </div>
         </div>
