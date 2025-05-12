@@ -17,14 +17,12 @@ function useCustomCursorInDiv() {
             if (customCursor.current) {
                 customCursor.current.style.opacity = 0.5;
             }
-            console.log("enter worked");
         };
 
         const handleLeaveDiv = () => {
             if (customCursor.current) {
                 customCursor.current.style.opacity = 0;
             }
-            console.log("leave worked");
         };
 
         window.addEventListener("mousemove", positionElement);
