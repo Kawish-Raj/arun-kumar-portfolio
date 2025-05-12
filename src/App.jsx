@@ -16,7 +16,7 @@ function App() {
     <div className = "app-container">
       <SideBar isMainContent = {isMainContent} sideBarMode={sideBarMode}/>
       <HeroArea />
-      <AboutMe setIsMainContent = {setIsMainContent} setSideBarMode={setSideBarMode}/>
+      <AboutMe setIsMainContent = {setIsMainContent} setSideBarMode={setSideBarMode} isMainContent={isMainContent}/>
       <Qualifications setIsMainContent={setIsMainContent}/>
       <Work setIsMainContent = {setIsMainContent}/>
       <Footer />
