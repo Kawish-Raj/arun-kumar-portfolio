@@ -6,6 +6,8 @@ import useCustomCursorInDiv from '../customhooks/useCustomCursorInDiv';
 import useCustomTEXTCursorInDiv from '../customhooks/useCustomTEXTCursorInDiv';
 
 export default function AboutMe({ setIsMainContent, setSideBarMode, isMainContent }) {
+    const hiContent = useRef();
+    
     const divRef1 = useTopDistanceTrigger(setIsMainContent, 0);
     const divRef2 = useSideBarEnterTrigger(setSideBarMode, 60);
 
@@ -27,18 +29,41 @@ export default function AboutMe({ setIsMainContent, setSideBarMode, isMainConten
         para2CustomTextCursor.current = el;
     }
 
+    const setHiRefs = (el) => {
+        hiDiv.current = el;
+        hiContent.current = el;
+    }
+
 
     const setRefs = (el) => {
         divRef1.current = el;
         divRef2.current = el;
         parentDiv.current = el;
     };
+
+
+    useEffect(() => {
+        const hiTextContent = ['hi.', 'नमस्ते', 'bonjour.'];
+        let i = 1;
+        const intervalId = setInterval(()=> {
+            hiContent.current.textContent = hiTextContent[i];
+            if(i>=2){
+                i = 0;
+            } else {
+                i++;
+            }
+        },4000);
+
+        return(() => {
+            clearInterval(intervalId);
+        });
+    },[])
     return (
         <div id="about-id" ref={setRefs} className={`global-AboutMe homeComponent ${styles.aboutMe}`}>
             <div className={styles.customCursor} ref={setCursorRefs}></div>
             <div className={`${styles.aboutMeCanvas}`}>
                 <div className={`${styles.headingContainer}`}>
-                    <div className={styles.headingWord} ><span ref={hiDiv}>hi.</span></div>
+                    <div className={`${styles.headingWord} ${styles.hiheadingword}`} ><span ref={setHiRefs}>hi.</span></div>
                     <div className={styles.headingWord}><span ref={imDiv}>i'm</span></div>
                     <div className={styles.headingWord}><span ref={nameDiv}>arund kumar.</span></div>
                 </div>
