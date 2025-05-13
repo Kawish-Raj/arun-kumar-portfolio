@@ -12,10 +12,19 @@ export default function AboutMe({ setIsMainContent, setSideBarMode, isMainConten
     const [parentDiv, customCursor] = useCustomCursorInDiv();
 
     const [hiDiv, hiCustomTextCursor] = useCustomTEXTCursorInDiv();
+    const [imDiv, imCustomTextCursor] = useCustomTEXTCursorInDiv();
+    const [nameDiv, nameCustomTextCursor] = useCustomTEXTCursorInDiv();
+    const [para1, para1CustomTextCursor] = useCustomTEXTCursorInDiv();
+    const [para2, para2CustomTextCursor] = useCustomTEXTCursorInDiv();
+
 
     const setCursorRefs = (el) => {
         customCursor.current = el;
         hiCustomTextCursor.current = el;
+        imCustomTextCursor.current = el;
+        nameCustomTextCursor.current = el;
+        para1CustomTextCursor.current = el;
+        para2CustomTextCursor.current = el;
     }
 
 
@@ -30,17 +39,17 @@ export default function AboutMe({ setIsMainContent, setSideBarMode, isMainConten
             <div className={`${styles.aboutMeCanvas}`}>
                 <div className={`${styles.headingContainer}`}>
                     <div className={styles.headingWord} ><span ref={hiDiv}>hi.</span></div>
-                    <div className={styles.headingWord}>i'm</div>
-                    <div className={styles.headingWord}>arun kumar.</div>
+                    <div className={styles.headingWord}><span ref={imDiv}>i'm</span></div>
+                    <div className={styles.headingWord}><span ref={nameDiv}>arund kumar.</span></div>
                 </div>
                 <div className={styles.aboutmePara}>
-                    <p>I began my journey in education as a simple school teacher,
+                    <p ref={para1}>I began my journey in education as a simple school teacher,
                         and over the years, I have remained deeply committed to this
                         field. I have always believed that education is one of the
                         most powerful tools for positive change, not just for
                         individuals, but for society as a whole.
                     </p>
-                    <p>
+                    <p ref={para2}>
                         Throughout my career, I’ve been fortunate to be involved in
                         establishing and managing educational institutions across
                         Bihar and Jharkhand. My focus has consistently been on
