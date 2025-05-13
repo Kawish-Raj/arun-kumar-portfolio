@@ -1,12 +1,14 @@
 import styles from '../css-components/AboutMe.module.css';
 import useTopDistanceTrigger from '../customhooks/useTopDistanceTrigger';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import useSideBarEnterTrigger from '../customhooks/useSideBarEnterTrigger';
 import useCustomCursorInDiv from '../customhooks/useCustomCursorInDiv';
 import useCustomTEXTCursorInDiv from '../customhooks/useCustomTEXTCursorInDiv';
 
 export default function AboutMe({ setIsMainContent, setSideBarMode, isMainContent }) {
     const hiContent = useRef();
+
+    const [show, setShow] = useState(false);
     
     const divRef1 = useTopDistanceTrigger(setIsMainContent, 0);
     const divRef2 = useSideBarEnterTrigger(setSideBarMode, 60);
@@ -74,6 +76,7 @@ export default function AboutMe({ setIsMainContent, setSideBarMode, isMainConten
                         most powerful tools for positive change, not just for
                         individuals, but for society as a whole.
                     </p>
+                    {show ? 
                     <p ref={para2}>
                         Throughout my career, I’ve been fortunate to be involved in
                         establishing and managing educational institutions across
@@ -82,8 +85,9 @@ export default function AboutMe({ setIsMainContent, setSideBarMode, isMainConten
                         levels. I try to personally stay involved in the functioning of
                         these institutions to ensure that students and teachers have the
                         right environment to grow.
-                    </p>
+                    </p>: null}
                 </div>
+                    <button onClick={()=>{setShow((prev)=> !prev)}} className={styles.showMoreButton}>{show ? 'Hide' : 'Show More'}</button>
             </div>
         </div>
     )
