@@ -22,6 +22,7 @@
   opacity: 0;
   pointer-events: none; /* So it doesn't block clicks */
   z-index: 9999;
+  transition: width,height,border-radius 0.1s ease-out;
 }
 
 
@@ -49,3 +50,7 @@
 .aboutmePara p {
     margin: 20px 0px;
 }
+
+/* .aboutMe span {
+    padding: 25px;
+} */

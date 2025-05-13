@@ -8,24 +8,30 @@ function useCustomCursorInDiv() {
         const positionElement = (e) => {
             const mouseX = e.clientX;
             const mouseY = e.clientY;
+
             if (customCursor.current) {
-                customCursor.current.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+                const rect = customCursor.current.getBoundingClientRect();
+                const cursorWidth = rect.width;
+                const cursorHeight = rect.height;
+                customCursor.current.style.transform = `translate3d(${mouseX - cursorWidth / 2}px, ${mouseY - cursorHeight / 2}px, 0)`;
             }
         };
+
 
         const handleEnterDiv = () => {
             if (customCursor.current) {
                 customCursor.current.style.opacity = 0.5;
+                window.addEventListener("mousemove", positionElement);
             }
         };
 
         const handleLeaveDiv = () => {
             if (customCursor.current) {
                 customCursor.current.style.opacity = 0;
+                window.removeEventListener("mousemove", positionElement);
             }
         };
 
-        window.addEventListener("mousemove", positionElement);
 
         const parent = parentDiv.current;
         if (parent) {
@@ -34,7 +40,6 @@ function useCustomCursorInDiv() {
         }
 
         return () => {
-            window.removeEventListener("mousemove", positionElement);
             if (parent) {
                 parent.removeEventListener("mouseenter", handleEnterDiv);
                 parent.removeEventListener("mouseleave", handleLeaveDiv);
@@ -42,7 +47,7 @@ function useCustomCursorInDiv() {
         };
     }, []);
 
-    return { parentDiv, customCursor };
+    return [parentDiv, customCursor];
 }
 
 export default useCustomCursorInDiv;
