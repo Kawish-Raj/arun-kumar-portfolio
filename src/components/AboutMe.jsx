@@ -59,13 +59,13 @@ export default function AboutMe({ setIsMainContent, setSideBarMode, isMainConten
         });
     },[])
     return (
-        <div id="about-id" ref={setRefs} className={`global-AboutMe homeComponent ${styles.aboutMe}`}>
+        <div id="about-id" ref={setRefs} className={`global-AboutMe ${styles.aboutMe}`}>
             <div className={styles.customCursor} ref={setCursorRefs}></div>
             <div className={`${styles.aboutMeCanvas}`}>
                 <div className={`${styles.headingContainer}`}>
                     <div className={`${styles.headingWord} ${styles.hiheadingword}`} ><span ref={setHiRefs}>hi.</span></div>
                     <div className={styles.headingWord}><span ref={imDiv}>i'm</span></div>
-                    <div className={styles.headingWord}><span ref={nameDiv}>arund kumar.</span></div>
+                    <div className={styles.headingWord}><span ref={nameDiv}>arun kumar.</span></div>
                 </div>
                 <div className={styles.aboutmePara}>
                     <p ref={para1}>I began my journey in education as a simple school teacher,
