@@ -77,12 +77,12 @@
     max-height: 0px;
     overflow: hidden;
     opacity: 0;
-    transition: max-height,opacity 2s ease;
+    transition: max-height 5s ease-out,opacity 5s ease-out;
 
 }
 
 .showContainer.show {
-    max-height: 500px;
+    max-height: 1800px;
     opacity:1;
 }
 /* .aboutMe span {
