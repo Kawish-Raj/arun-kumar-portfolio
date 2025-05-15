@@ -9,7 +9,7 @@ export default function AboutMe({ setIsMainContent, setSideBarMode, isMainConten
     const hiContent = useRef();
 
     const [show, setShow] = useState(false);
-    
+
     const divRef1 = useTopDistanceTrigger(setIsMainContent, 0);
     const divRef2 = useSideBarEnterTrigger(setSideBarMode, 60);
 
@@ -47,19 +47,19 @@ export default function AboutMe({ setIsMainContent, setSideBarMode, isMainConten
     useEffect(() => {
         const hiTextContent = ['hi.', 'नमस्ते', 'bonjour.'];
         let i = 1;
-        const intervalId = setInterval(()=> {
+        const intervalId = setInterval(() => {
             hiContent.current.textContent = hiTextContent[i];
-            if(i>=2){
+            if (i >= 2) {
                 i = 0;
             } else {
                 i++;
             }
-        },4000);
+        }, 4000);
 
-        return(() => {
+        return (() => {
             clearInterval(intervalId);
         });
-    },[])
+    }, [])
     return (
         <div id="about-id" ref={setRefs} className={`global-AboutMe ${styles.aboutMe}`}>
             <div className={styles.customCursor} ref={setCursorRefs}></div>
@@ -76,18 +76,19 @@ export default function AboutMe({ setIsMainContent, setSideBarMode, isMainConten
                         most powerful tools for positive change, not just for
                         individuals, but for society as a whole.
                     </p>
-                    {show ? 
-                    <p ref={para2}>
-                        Throughout my career, I’ve been fortunate to be involved in
-                        establishing and managing educational institutions across
-                        Bihar and Jharkhand. My focus has consistently been on
-                        improving the quality of education at both school and college
-                        levels. I try to personally stay involved in the functioning of
-                        these institutions to ensure that students and teachers have the
-                        right environment to grow.
-                    </p>: null}
+                    <div className={`${styles.showContainer} ${show ? styles.show : ''}`}>
+                        <p ref={para2}>
+                            Throughout my career, I’ve been fortunate to be involved in
+                            establishing and managing educational institutions across
+                            Bihar and Jharkhand. My focus has consistently been on
+                            improving the quality of education at both school and college
+                            levels. I try to personally stay involved in the functioning of
+                            these institutions to ensure that students and teachers have the
+                            right environment to grow.
+                        </p>
+                    </div>
                 </div>
-                    <button onClick={()=>{setShow((prev)=> !prev)}} className={styles.showMoreButton}>{show ? 'Hide' : 'Show More'}</button>
+                <button onClick={() => { setShow((prev) => !prev) }} className={styles.showMoreButton}>{show ? 'Hide' : 'Show More'}</button>
             </div>
         </div>
     )
