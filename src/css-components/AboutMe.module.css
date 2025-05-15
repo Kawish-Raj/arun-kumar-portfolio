@@ -67,6 +67,24 @@
   cursor: none;
   transition: background-color 0.3s;
 }
+
+.showMoreButton:hover {
+    background-color: white;
+    color: black;
+}
+
+.showContainer {
+    max-height: 0px;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height,opacity 2s ease;
+
+}
+
+.showContainer.show {
+    max-height: 500px;
+    opacity:1;
+}
 /* .aboutMe span {
     padding: 25px;
 } */
