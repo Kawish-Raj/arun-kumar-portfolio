@@ -9,6 +9,10 @@
     justify-content: center;
     position:relative;
     cursor:none;
+    background-image:url('../assets/background-images/vertical-line-dimmed.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
 }
 
 .customCursor {
