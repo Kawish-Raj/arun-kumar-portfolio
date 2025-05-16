@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import useSideBarEnterTrigger from '../customhooks/useSideBarEnterTrigger';
 import useCustomCursorInDiv from '../customhooks/useCustomCursorInDiv';
 import useCustomTEXTCursorInDiv from '../customhooks/useCustomTEXTCursorInDiv';
+import useCustomBUTTONCursorInDiv from '../customhooks/useCustomBUTTONCursorInDiv';
 
 export default function AboutMe({ setIsMainContent, setSideBarMode, isMainContent }) {
     const hiContent = useRef();
@@ -21,6 +22,7 @@ export default function AboutMe({ setIsMainContent, setSideBarMode, isMainConten
     const [para1, para1CustomTextCursor] = useCustomTEXTCursorInDiv();
     const [para2, para2CustomTextCursor] = useCustomTEXTCursorInDiv();
 
+    const [showButton, showButtonCursor] = useCustomBUTTONCursorInDiv();
 
     const setCursorRefs = (el) => {
         customCursor.current = el;
@@ -29,6 +31,7 @@ export default function AboutMe({ setIsMainContent, setSideBarMode, isMainConten
         nameCustomTextCursor.current = el;
         para1CustomTextCursor.current = el;
         para2CustomTextCursor.current = el;
+        showButtonCursor.current = el;
     }
 
     const setHiRefs = (el) => {
@@ -88,7 +91,7 @@ export default function AboutMe({ setIsMainContent, setSideBarMode, isMainConten
                         </p>
                     </div>
                 </div>
-                <button onClick={() => { setShow((prev) => !prev) }} className={styles.showMoreButton}>{show ? 'Hide' : 'Show More'}</button>
+                <button onClick={() => { setShow((prev) => !prev) }} className={styles.showMoreButton} ref={showButton}>{show ? 'Hide' : 'Show More'}</button>
             </div>
         </div>
     )
