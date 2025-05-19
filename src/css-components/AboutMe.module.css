@@ -71,9 +71,25 @@
   cursor: none;
   transition: background-color 0.5s;
   border-radius: 3em;
-  /* position:relative;
+  position:relative;
   overflow:hidden;
-  z-index: 1; */
+  z-index: 1;
+}
+
+.showMoreButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: rgba(255, 0, 0, 0.5);
+  transition: width 0.1s ease-out;
+  z-index: -1;
+}
+
+.showMoreButton:hover::before {
+  width: 100%;
 }
 
 /* .showMoreButton:hover {

@@ -20,8 +20,8 @@ const parentDiv = useRef(null);
                     opacity: '0%'
                 });
                 Object.assign(parentDiv.current.style, {
-                    backgroundColor: "rgba(255, 0, 0, 0.5)",
-                    backgroundOpacity: "50%",
+                    // backgroundColor: "rgba(255, 0, 0, 0.5)",
+                    // backgroundOpacity: "50%",
                     borderColor: "transparent"
                 } )
             }
