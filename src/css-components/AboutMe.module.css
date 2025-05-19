@@ -89,6 +89,14 @@
 }
 
 .showMoreButton[data-direction='left']:hover::before {
+  left: 0;
+  right: auto;
+  width: 100%;
+}
+
+.showMoreButton[data-direction='right']:hover::before {
+  right: 0;
+  left:auto;
   width: 100%;
 }
 
