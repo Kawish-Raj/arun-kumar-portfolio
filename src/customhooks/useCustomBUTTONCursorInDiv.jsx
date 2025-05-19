@@ -15,25 +15,14 @@ function useCustomBUTTONCursorInDiv() {
     }
 
     useEffect(() => {
-        const positionElement = (e) => {
-            const mouseX = e.clientX;
-            const mouseY = e.clientY;
-            if (customTextCursor.current) {
-                customTextCursor.current.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-            }
-        };
-
         const handleEnterDiv = (e) => {
             const direction = getDirection(e, parentDiv.current);
             parentDiv.current.setAttribute('data-direction', direction);
             if (customTextCursor.current) {
-                const parentStyles = window.getComputedStyle(parentDiv.current);
                 Object.assign(customTextCursor.current.style, {
                     opacity: '0%'
                 });
                 Object.assign(parentDiv.current.style, {
-                    // backgroundColor: "rgba(255, 0, 0, 0.5)",
-                    // backgroundOpacity: "50%",
                     borderColor: "transparent"
                 })
             }
@@ -53,8 +42,6 @@ function useCustomBUTTONCursorInDiv() {
             }
         };
 
-        window.addEventListener("mousemove", positionElement);
-
         const parent = parentDiv.current;
         if (parent) {
             parent.addEventListener("mouseenter", handleEnterDiv);
@@ -62,7 +49,6 @@ function useCustomBUTTONCursorInDiv() {
         }
 
         return () => {
-            window.removeEventListener("mousemove", positionElement);
             if (parent) {
                 parent.removeEventListener("mouseenter", handleEnterDiv);
                 parent.removeEventListener("mouseleave", handleLeaveDiv);

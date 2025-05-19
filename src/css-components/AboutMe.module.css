@@ -100,10 +100,30 @@
   width: 100%;
 }
 
-/* .showMoreButton:hover {
-    background-color: white;
-    color: black;
-} */
+.showMoreButton::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background-color: rgba(255, 0, 0, 0.5);
+  transition: height 0.1s ease-out;
+  z-index: -1;
+}
+
+.showMoreButton[data-direction='top']:hover::after {
+    top: 0;
+    bottom: auto;
+    height: 100%;
+}
+
+.showMoreButton[data-direction='bottom']:hover::after {
+    bottom: 0;
+    top: auto;
+    height: 100%;
+}
+
 
 .showContainer {
     max-height: 0px;
@@ -118,43 +138,3 @@
     opacity:1;
     transition: max-height 3s linear, opacity 2s ease-out;
 }
-/* .aboutMe span {
-    padding: 25px;
-} */
-
-/* .showMoreButton::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 0, 0, 0.5); 
-  transform: translateY(-100%);
-  transition: transform 0.4s ease;
-  z-index: -1;
-}
-
-.showMoreButton[data-direction='top']:hover::before {
-  transform: translateY(0%);
-}
-
-.showMoreButton[data-direction='bottom']:hover::before {
-  transform: translateY(0%);
-  top: auto;
-  bottom: 0;
-  transform: translateY(100%);
-}
-
-.showMoreButton[data-direction='left']:hover::before {
-  width: 100%;
-  height: 100%;
-  transform: translateX(0%);
-  left: 0;
-}
-
-.showMoreButton[data-direction='right']:hover::before {
-  width: 100%;
-  height: 100%;
-  transform: translateX(0%);
-  left: auto;
-  right: 0;
-} */
