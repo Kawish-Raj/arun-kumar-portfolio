@@ -1,8 +1,18 @@
 import { useEffect, useRef } from "react";
 
-function useCustomBUTTONCursorInDiv(){
-const parentDiv = useRef(null);
+function useCustomBUTTONCursorInDiv() {
+    const parentDiv = useRef(null);
     const customTextCursor = useRef(null);
+
+    function getDirection(e, el) {
+        const { top, left, width, height } = el.getBoundingClientRect();
+        const x = e.clientX - left - width / 2;
+        const y = e.clientY - top - height / 2;
+        const angle = Math.atan2(y, x) * (180 / Math.PI);
+        const direction = Math.round((angle + 180) / 90) % 4;
+
+        return ['left', 'top', 'right', 'bottom'][direction];
+    }
 
     useEffect(() => {
         const positionElement = (e) => {
@@ -13,7 +23,9 @@ const parentDiv = useRef(null);
             }
         };
 
-        const handleEnterDiv = () => {
+        const handleEnterDiv = (e) => {
+            const direction = getDirection(e, parentDiv.current);
+            console.log(direction);
             if (customTextCursor.current) {
                 const parentStyles = window.getComputedStyle(parentDiv.current);
                 Object.assign(customTextCursor.current.style, {
@@ -23,7 +35,7 @@ const parentDiv = useRef(null);
                     // backgroundColor: "rgba(255, 0, 0, 0.5)",
                     // backgroundOpacity: "50%",
                     borderColor: "transparent"
-                } )
+                })
             }
         };
 
