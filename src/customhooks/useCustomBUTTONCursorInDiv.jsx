@@ -17,9 +17,6 @@ const parentDiv = useRef(null);
             if (customTextCursor.current) {
                 const parentStyles = window.getComputedStyle(parentDiv.current);
                 Object.assign(customTextCursor.current.style, {
-                    // borderRadius: parentStyles.borderRadius,
-                    // width: parentStyles.width,
-                    // height: `${parseFloat(parentStyles.height)}px`,
                     opacity: '0%'
                 });
                 Object.assign(parentDiv.current.style, {
@@ -33,9 +30,6 @@ const parentDiv = useRef(null);
         const handleLeaveDiv = () => {
             if (customTextCursor.current) {
                 Object.assign(customTextCursor.current.style, {
-                    // borderRadius: '50%',
-                    // width: '50px',
-                    // height: '50px',
                     opacity: '50%'
                 });
 
