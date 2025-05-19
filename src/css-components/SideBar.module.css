@@ -146,3 +146,17 @@
     top: auto;
     height: 100%;
 }
+
+.customCursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: red; /* Use background-color instead of color */
+  opacity: 0%;
+  pointer-events: none; /* So it doesn't block clicks */
+  z-index: 9999;
+  transition: width,height,border-radius 0.1s ease-out;
+}
