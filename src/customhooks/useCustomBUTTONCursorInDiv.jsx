@@ -25,7 +25,7 @@ function useCustomBUTTONCursorInDiv() {
 
         const handleEnterDiv = (e) => {
             const direction = getDirection(e, parentDiv.current);
-            console.log(direction);
+            parentDiv.current.setAttribute('data-direction', direction);
             if (customTextCursor.current) {
                 const parentStyles = window.getComputedStyle(parentDiv.current);
                 Object.assign(customTextCursor.current.style, {
