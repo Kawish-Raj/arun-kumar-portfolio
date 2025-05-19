@@ -22,9 +22,6 @@ function useCustomBUTTONCursorInDiv() {
                 Object.assign(customTextCursor.current.style, {
                     opacity: '0%'
                 });
-                Object.assign(parentDiv.current.style, {
-                    borderColor: "transparent"
-                })
             }
         };
 
@@ -33,12 +30,6 @@ function useCustomBUTTONCursorInDiv() {
                 Object.assign(customTextCursor.current.style, {
                     opacity: '50%'
                 });
-
-                Object.assign(parentDiv.current.style, {
-                    backgroundColor: "transparent",
-                    backgroundOpacity: "50%",
-                    borderColor: "white"
-                })
             }
         };
 

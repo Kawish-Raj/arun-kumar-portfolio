@@ -1,8 +1,8 @@
 .sideBar {
     height: 50px;
     width: 100%;
-    position:fixed;
-    top:0px;
+    position: fixed;
+    top: 0px;
     /* left: 40px; */
     /* border: var(--primary) solid 2px; */
     text-align: center;
@@ -37,15 +37,11 @@
     background-repeat: no-repeat;
     background-position: center 85%;
     background-size: 100% 20%;
-    color:var(--text);
+    color: var(--text);
     text-decoration: none;
     font-size: 32px;
     font-weight: bold;
     padding: 2px;
-}
-
-.sideBar.darkMode a {
-    color:white;
 }
 
 .sideBar a:hover {
@@ -72,8 +68,81 @@
     font-weight: bold;
 }
 
+.sideBar.darkMode {
+    cursor: none;
+}
+
 
 .sideBar.darkMode .logoSideBar {
     color: white;
     border-color: white;
+}
+
+.sideBar.darkMode a {
+    margin-top: 20px;
+    background-color: transparent;
+    color: white;
+    font-family: 'IBMPlexMono Nerd Font', monospace;
+    font-size: 1em;
+    border: 1px solid white;
+    padding: 8px 16px;
+    cursor: none;
+    transition: background-color 0.5s;
+    border-radius: 3em;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    background-size: 0% 0%;
+}
+
+.sideBar.darkMode a:hover {
+    border-color: transparent;
+}
+
+.sideBar.darkMode a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: rgba(255, 0, 0, 0.5);
+  transition: width 0.1s ease-out;
+  z-index: -1;
+}
+
+.sideBar.darkMode a[data-direction='left']:hover::before {
+  left: 0;
+  right: auto;
+  width: 100%;
+}
+
+.sideBar.darkMode a[data-direction='right']:hover::before {
+  right: 0;
+  left:auto;
+  width: 100%;
+}
+
+.sideBar.darkMode a::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background-color: rgba(255, 0, 0, 0.5);
+  transition: height 0.1s ease-out;
+  z-index: -1;
+}
+
+.sideBar.darkMode a[data-direction='top']:hover::after {
+    top: 0;
+    bottom: auto;
+    height: 100%;
+}
+
+.sideBar.darkMode a[data-direction='bottom']:hover::after {
+    bottom: 0;
+    top: auto;
+    height: 100%;
 }

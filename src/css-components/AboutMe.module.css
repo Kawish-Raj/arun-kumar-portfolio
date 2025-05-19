@@ -69,11 +69,14 @@
   border: 1px solid white;
   padding: 8px 16px;
   cursor: none;
-  transition: background-color 0.5s;
   border-radius: 3em;
   position:relative;
   overflow:hidden;
   z-index: 1;
+}
+
+.showMoreButton:hover {
+    border-color: transparent;
 }
 
 .showMoreButton::before {
