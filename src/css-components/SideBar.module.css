@@ -147,6 +147,20 @@
     height: 100%;
 }
 
+.sideBar.darkMode a.fadeIn::after {
+    bottom: 0;
+    top: auto;
+    height: 100%;
+}
+
+.sideBar.darkMode a.fadeIn::before {
+    background-color: transparent;
+}
+
+.sideBar.darkMode a.fadeIn  {
+    border-color: transparent;
+}
+
 .customCursor {
   position: fixed;
   top: 0;
