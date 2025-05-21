@@ -4,15 +4,17 @@ import useTopDistanceTrigger from '../customhooks/useTopDistanceTrigger';
 export default function Qualifications({ setIsMainContent }) {
     const scrollRef = useRef();
     const headingRef = useRef();
-    const headingWord = ['Q','u','a','l','i','f','i','c','a','t','i','o','n','s'];
 
     const divRef = useTopDistanceTrigger(setIsMainContent, 1);
 
     useEffect(() => {
         const viewportHeight = window.innerHeight;
         let hassPassedTheMark = false;
-        let crossingRatio = 0.4;
         let currLetterIndex = 0;
+        let crossingRatio = 0.4;
+        const ratioReduceVal = 0.019
+        const headingWord = ['Q','u','a','l','i','f','i','c','a','t','i','o','n','s'];
+
 
         function handleScroll() {
             if (scrollRef.current) {
@@ -23,7 +25,7 @@ export default function Qualifications({ setIsMainContent }) {
                     if(headingRef.current) {
                         if(currLetterIndex < headingWord.length){
                             headingRef.current.textContent += headingWord[currLetterIndex];
-                            crossingRatio -= 0.019;
+                            crossingRatio -= ratioReduceVal;
                             currLetterIndex++;
                         }
                         else{
