@@ -9,23 +9,29 @@ export default function Qualifications({ setIsMainContent }) {
 
     useEffect(() => {
         const viewportHeight = window.innerHeight;
-        let hasPassedMidpoint = false;
+        let hassPassedTheMark = false;
+        let crossingRatio = 0.4;
+        let repitionTimes = 0;
 
         function handleScroll() {
             if (scrollRef.current) {
                 const { top } = scrollRef.current.getBoundingClientRect();
-                const isAboveHalfway = top < (0.5 * viewportHeight);
+                const crossingMark = top < (crossingRatio * viewportHeight);
 
-                if (!hasPassedMidpoint && isAboveHalfway) {
+                if (!hassPassedTheMark && crossingMark) {
                     if(headingRef.current) {
                         headingRef.current.textContent += 'Q';
+                        if(repitionTimes < 14){
+                            crossingRatio -= 0.019;
+                            repitionTimes++;
+                        }
                     }
-                    hasPassedMidpoint = true;
+                    hassPassedTheMark = true;
                 }
 
-                if (hasPassedMidpoint && !isAboveHalfway) {
+                if (hassPassedTheMark && !crossingMark) {
                     // Optional: reset flag if you scroll back down
-                    hasPassedMidpoint = false;
+                    hassPassedTheMark = false;
                 }
             }
         }
