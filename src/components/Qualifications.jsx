@@ -3,6 +3,7 @@ import styles from '../css-components/Qualifications.module.css';
 import useTopDistanceTrigger from '../customhooks/useTopDistanceTrigger';
 export default function Qualifications({ setIsMainContent }) {
     const scrollRef = useRef();
+    const headingRef = useRef();
 
     const divRef = useTopDistanceTrigger(setIsMainContent, 1);
 
@@ -16,7 +17,9 @@ export default function Qualifications({ setIsMainContent }) {
                 const isAboveHalfway = top < (0.5 * viewportHeight);
 
                 if (!hasPassedMidpoint && isAboveHalfway) {
-                    console.log('scrolled up half the viewport point');
+                    if(headingRef.current) {
+                        headingRef.current.textContent += 'Q';
+                    }
                     hasPassedMidpoint = true;
                 }
 
@@ -41,7 +44,7 @@ export default function Qualifications({ setIsMainContent }) {
             className={`global-Qualifications homeComponent 
         ${styles.qualifications}`}>
             <div className={styles.headContainer}>
-                <h1 className={styles.mainHeading}></h1>
+                <h1 className={styles.mainHeading} ref={headingRef}></h1>
             </div>
             <div className={styles.timelineContainer}></div>
         </div>
