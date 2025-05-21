@@ -4,6 +4,7 @@ import useTopDistanceTrigger from '../customhooks/useTopDistanceTrigger';
 export default function Qualifications({ setIsMainContent }) {
     const scrollRef = useRef();
     const headingRef = useRef();
+    const headingWord = ['Q','u','a','l','i','f','i','c','a','t','i','o','n','s'];
 
     const divRef = useTopDistanceTrigger(setIsMainContent, 1);
 
@@ -11,7 +12,7 @@ export default function Qualifications({ setIsMainContent }) {
         const viewportHeight = window.innerHeight;
         let hassPassedTheMark = false;
         let crossingRatio = 0.4;
-        let repitionTimes = 0;
+        let currLetterIndex = 0;
 
         function handleScroll() {
             if (scrollRef.current) {
@@ -20,15 +21,15 @@ export default function Qualifications({ setIsMainContent }) {
 
                 if (!hassPassedTheMark && crossingMark) {
                     if(headingRef.current) {
-                        headingRef.current.textContent += 'Q';
-                        if(repitionTimes < 14){
+                        if(currLetterIndex < headingWord.length){
+                            headingRef.current.textContent += headingWord[currLetterIndex];
                             crossingRatio -= 0.019;
-                            repitionTimes++;
+                            currLetterIndex++;
                         }
                         else{
                             hassPassedTheMark = true;
                             crossingRatio = 0.4;
-                            repitionTimes = 0;
+                            // currLetterIndex = 0;
                         }
                     }
                     // hassPassedTheMark = true;
