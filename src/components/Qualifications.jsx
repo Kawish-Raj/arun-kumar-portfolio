@@ -25,8 +25,13 @@ export default function Qualifications({ setIsMainContent }) {
                             crossingRatio -= 0.019;
                             repitionTimes++;
                         }
+                        else{
+                            hassPassedTheMark = true;
+                            crossingRatio = 0.4;
+                            repitionTimes = 0;
+                        }
                     }
-                    hassPassedTheMark = true;
+                    // hassPassedTheMark = true;
                 }
 
                 if (hassPassedTheMark && !crossingMark) {
