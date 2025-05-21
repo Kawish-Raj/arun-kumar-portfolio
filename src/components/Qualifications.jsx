@@ -1,7 +1,10 @@
 import { useEffect, useRef } from 'react';
 import styles from '../css-components/Qualifications.module.css';
 import useTopDistanceTrigger from '../customhooks/useTopDistanceTrigger';
+
+
 export default function Qualifications({ setIsMainContent }) {
+
     const scrollRef = useRef();
     const headingRef = useRef();
 
@@ -30,7 +33,7 @@ export default function Qualifications({ setIsMainContent }) {
                         }
                         else{
                             hassPassedTheMark = true;
-                            crossingRatio = 0.4;
+                            // crossingRatio = 0.4;
                             // currLetterIndex = 0;
                         }
                     }
@@ -39,7 +42,17 @@ export default function Qualifications({ setIsMainContent }) {
 
                 if (hassPassedTheMark && !crossingMark) {
                     // Optional: reset flag if you scroll back down
-                    hassPassedTheMark = false;
+                    if(headingRef.current) {
+                        if(currLetterIndex > 0){
+                            headingRef.current.textContent = headingRef.current.textContent.slice(0,-1);
+                            crossingRatio += ratioReduceVal;
+                            currLetterIndex--;
+                        }
+                        else{
+                            hassPassedTheMark = false;
+                        }
+                    }
+                    // hassPassedTheMark = false;
                 }
             }
         }
