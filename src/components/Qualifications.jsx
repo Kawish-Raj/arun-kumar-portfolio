@@ -1,13 +1,11 @@
-import { useEffect, useRef } from 'react';
 import styles from '../css-components/Qualifications.module.css';
 import useTopDistanceTrigger from '../customhooks/useTopDistanceTrigger';
 import useTypeAppearStyle from '../customhooks/useTypeAppearStyle';
-
+import { qualificationsWordArray } from '../assets/Words';
 
 export default function Qualifications({ setIsMainContent }) {
 
-
-    const [scrollRef, headingRef] = useTypeAppearStyle();
+    const [scrollRef, headingRef] = useTypeAppearStyle(qualificationsWordArray, 0.5, 0.05);
 
     const divRef = useTopDistanceTrigger(setIsMainContent, 1);
 

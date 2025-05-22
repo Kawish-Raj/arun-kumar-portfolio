@@ -23,4 +23,6 @@ export const extraLetters = [
     'g'
 ]
 
+export const qualificationsWordArray = ['Q', 'u', 'a', 'l', 'i', 'f', 'i', 'c', 'a', 't', 'i', 'o', 'n', 's'];
+
 export default words;

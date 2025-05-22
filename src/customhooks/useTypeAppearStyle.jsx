@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-function useTypeAppearStyle() {
+function useTypeAppearStyle(wordArray, animStartRatio = 0.4, animEndRatio = 0.25 ) {
 
     const scrollRef = useRef();
     const styleRef = useRef();
@@ -11,11 +11,9 @@ function useTypeAppearStyle() {
             let hasPassedTOPMark = false;
             let hasPassedBOTTOMMark = true;
             let currLetterIndex = 0;
-            let topCrossingRatio = 0.4;
-            let bottomCrossingRatio = 0.4;
-            const ratioReduceVal = 0.019
-            const headingWord = ['Q', 'u', 'a', 'l', 'i', 'f', 'i', 'c', 'a', 't', 'i', 'o', 'n', 's'];
-    
+            let topCrossingRatio = animStartRatio;
+            let bottomCrossingRatio = animStartRatio;
+            const ratioReduceVal = ((animStartRatio - animEndRatio)/(wordArray.length));    
     
             function handleScroll() {
                 if (scrollRef.current) {
@@ -25,23 +23,21 @@ function useTypeAppearStyle() {
     
     
                     if (!hasPassedTOPMark && crossingTOPMark) {
-                        console.log(`Start Top Mark ${(topCrossingRatio * viewportHeight)}`);
-                        console.log(`Crossing Top Bottom Makr ${(bottomCrossingRatio * viewportHeight)}`);
                         if (styleRef.current) {
                             if (currLetterIndex === 0) {
-                                styleRef.current.textContent += headingWord[currLetterIndex];
+                                styleRef.current.textContent += wordArray[currLetterIndex];
                                 topCrossingRatio -= ratioReduceVal;
                                 currLetterIndex++;
                                 hasPassedBOTTOMMark = false;
                             }
-                            else if (currLetterIndex === 13) {
-                                styleRef.current.textContent += headingWord[currLetterIndex];
+                            else if (currLetterIndex === (wordArray.lengt -1)) {
+                                styleRef.current.textContent += wordArray[currLetterIndex];
                                 bottomCrossingRatio -= ratioReduceVal;
                                 currLetterIndex++;
                                 hasPassedTOPMark = true;
                             }
-                            else if (currLetterIndex < headingWord.length) {
-                                styleRef.current.textContent += headingWord[currLetterIndex];
+                            else if (currLetterIndex < wordArray.length) {
+                                styleRef.current.textContent += wordArray[currLetterIndex];
                                 topCrossingRatio -= ratioReduceVal;
                                 bottomCrossingRatio -= ratioReduceVal;
                                 currLetterIndex++;
@@ -51,7 +47,7 @@ function useTypeAppearStyle() {
     
                     if (!hasPassedBOTTOMMark && crossingBOTTOMMark) {
                         if (styleRef.current) {
-                            if (currLetterIndex === 14) {
+                            if (currLetterIndex === wordArray.length) {
                                 styleRef.current.textContent = styleRef.current.textContent.slice(0, -1);
                                 bottomCrossingRatio += ratioReduceVal;
                                 currLetterIndex--;
