@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-function useTypeAppearStyle(wordArray, animStartRatio = 0.4, animEndRatio = 0.25 ) {
+function useTypeAppearStyle(wordArray, animStartRatio = 0.4, animEndRatio = 0.25, wordOpacity = 0.5 ) {
 
     const scrollRef = useRef();
     const styleRef = useRef();
@@ -13,7 +13,12 @@ function useTypeAppearStyle(wordArray, animStartRatio = 0.4, animEndRatio = 0.25
             let currLetterIndex = 0;
             let topCrossingRatio = animStartRatio;
             let bottomCrossingRatio = animStartRatio;
-            const ratioReduceVal = ((animStartRatio - animEndRatio)/(wordArray.length));    
+            const ratioReduceVal = ((animStartRatio - animEndRatio)/(wordArray.length - 1));
+            const opacityIncreaseVal = ((1-wordOpacity)/(wordArray.length - 1));
+            
+            if (styleRef.current) {
+                styleRef.current.style.opacity = `${wordOpacity}%`;
+            }    
     
             function handleScroll() {
                 if (scrollRef.current) {
@@ -30,13 +35,17 @@ function useTypeAppearStyle(wordArray, animStartRatio = 0.4, animEndRatio = 0.25
                                 currLetterIndex++;
                                 hasPassedBOTTOMMark = false;
                             }
-                            else if (currLetterIndex === (wordArray.lengt -1)) {
+                            else if (currLetterIndex === (wordArray.length -1)) {
+                                wordOpacity = wordOpacity + opacityIncreaseVal;
+                                styleRef.current.style.opacity = wordOpacity;
                                 styleRef.current.textContent += wordArray[currLetterIndex];
                                 bottomCrossingRatio -= ratioReduceVal;
                                 currLetterIndex++;
                                 hasPassedTOPMark = true;
                             }
                             else if (currLetterIndex < wordArray.length) {
+                                wordOpacity = wordOpacity + opacityIncreaseVal;
+                                styleRef.current.style.opacity = wordOpacity;
                                 styleRef.current.textContent += wordArray[currLetterIndex];
                                 topCrossingRatio -= ratioReduceVal;
                                 bottomCrossingRatio -= ratioReduceVal;
@@ -48,6 +57,8 @@ function useTypeAppearStyle(wordArray, animStartRatio = 0.4, animEndRatio = 0.25
                     if (!hasPassedBOTTOMMark && crossingBOTTOMMark) {
                         if (styleRef.current) {
                             if (currLetterIndex === wordArray.length) {
+                                wordOpacity = wordOpacity - opacityIncreaseVal;
+                                styleRef.current.style.opacity = wordOpacity;
                                 styleRef.current.textContent = styleRef.current.textContent.slice(0, -1);
                                 bottomCrossingRatio += ratioReduceVal;
                                 currLetterIndex--;
@@ -60,6 +71,8 @@ function useTypeAppearStyle(wordArray, animStartRatio = 0.4, animEndRatio = 0.25
                                 hasPassedBOTTOMMark = true;
                             }
                             else if (currLetterIndex > 0) {
+                                wordOpacity = wordOpacity - opacityIncreaseVal;
+                                styleRef.current.style.opacity = wordOpacity;
                                 styleRef.current.textContent = styleRef.current.textContent.slice(0, -1);
                                 topCrossingRatio += ratioReduceVal;
                                 bottomCrossingRatio += ratioReduceVal;
