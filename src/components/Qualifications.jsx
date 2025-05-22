@@ -12,47 +12,68 @@ export default function Qualifications({ setIsMainContent }) {
 
     useEffect(() => {
         const viewportHeight = window.innerHeight;
-        let hassPassedTheMark = false;
+        let hasPassedTOPMark = false;
+        let hasPassedBOTTOMMark = true;
         let currLetterIndex = 0;
-        let crossingRatio = 0.4;
+        let topCrossingRatio = 0.4;
+        let bottomCrossingRatio = 0.4;
         const ratioReduceVal = 0.019
-        const headingWord = ['Q','u','a','l','i','f','i','c','a','t','i','o','n','s'];
+        const headingWord = ['Q', 'u', 'a', 'l', 'i', 'f', 'i', 'c', 'a', 't', 'i', 'o', 'n', 's'];
 
 
         function handleScroll() {
             if (scrollRef.current) {
                 const { top } = scrollRef.current.getBoundingClientRect();
-                const crossingMark = top < (crossingRatio * viewportHeight);
+                const crossingTOPMark = top < (topCrossingRatio * viewportHeight);
+                const crossingBOTTOMMark = top > (bottomCrossingRatio * viewportHeight);
 
-                if (!hassPassedTheMark && crossingMark) {
-                    if(headingRef.current) {
-                        if(currLetterIndex < headingWord.length){
+
+                if (!hasPassedTOPMark && crossingTOPMark) {
+                    console.log(`Start Top Mark ${(topCrossingRatio * viewportHeight)}`);
+                    console.log(`Crossing Top Bottom Makr ${(bottomCrossingRatio * viewportHeight)}`);
+                    if (headingRef.current) {
+                        if (currLetterIndex === 0) {
                             headingRef.current.textContent += headingWord[currLetterIndex];
-                            crossingRatio -= ratioReduceVal;
+                            topCrossingRatio -= ratioReduceVal;
+                            currLetterIndex++;
+                            hasPassedBOTTOMMark = false;
+                        }
+                        else if (currLetterIndex === 13) {
+                            headingRef.current.textContent += headingWord[currLetterIndex];
+                            bottomCrossingRatio -= ratioReduceVal;
+                            currLetterIndex++;
+                            hasPassedTOPMark = true;
+                        }
+                        else if (currLetterIndex < headingWord.length) {
+                            headingRef.current.textContent += headingWord[currLetterIndex];
+                            topCrossingRatio -= ratioReduceVal;
+                            bottomCrossingRatio -= ratioReduceVal;
                             currLetterIndex++;
                         }
-                        else{
-                            hassPassedTheMark = true;
-                            // crossingRatio = 0.4;
-                            // currLetterIndex = 0;
-                        }
                     }
-                    // hassPassedTheMark = true;
                 }
 
-                if (hassPassedTheMark && !crossingMark) {
-                    // Optional: reset flag if you scroll back down
-                    if(headingRef.current) {
-                        if(currLetterIndex > 0){
-                            headingRef.current.textContent = headingRef.current.textContent.slice(0,-1);
-                            crossingRatio += ratioReduceVal;
+                if (!hasPassedBOTTOMMark && crossingBOTTOMMark) {
+                    if (headingRef.current) {
+                        if (currLetterIndex === 14) {
+                            headingRef.current.textContent = headingRef.current.textContent.slice(0, -1);
+                            bottomCrossingRatio += ratioReduceVal;
+                            currLetterIndex--;
+                            hasPassedTOPMark = false;
+                        }
+                        else if (currLetterIndex === 1) {
+                            headingRef.current.textContent = headingRef.current.textContent.slice(0, -1);
+                            topCrossingRatio += ratioReduceVal;
+                            currLetterIndex--;
+                            hasPassedBOTTOMMark = true;
+                        }
+                        else if (currLetterIndex > 0) {
+                            headingRef.current.textContent = headingRef.current.textContent.slice(0, -1);
+                            topCrossingRatio += ratioReduceVal;
+                            bottomCrossingRatio += ratioReduceVal;
                             currLetterIndex--;
                         }
-                        else{
-                            hassPassedTheMark = false;
-                        }
                     }
-                    // hassPassedTheMark = false;
                 }
             }
         }
