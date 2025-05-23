@@ -5,7 +5,7 @@ import { qualificationsWordArray } from '../assets/Words';
 
 export default function Qualifications({ setIsMainContent }) {
 
-    const [scrollRef, headingRef] = useTypeAppearStyle(qualificationsWordArray, 0.5, 0.05);
+    const [scrollRef, headingRef] = useTypeAppearStyle(qualificationsWordArray, 0.6, 0.15);
 
     const divRef = useTopDistanceTrigger(setIsMainContent, 1);
 
