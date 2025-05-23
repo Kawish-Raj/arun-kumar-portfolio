@@ -20,7 +20,20 @@ export default function Qualifications({ setIsMainContent }) {
             <div className={styles.headContainer}>
                 <h1 className={styles.mainHeading} ref={headingRef}></h1>
             </div>
-            <div className={styles.timelineContainer}></div>
+            <div className={styles.timelineContainer}>
+                <ul className={styles.timelineList}>
+                    <li className={styles.firstListItem}>
+                        <div className={styles.sampleImage}>S</div>
+                        <hr className={styles.firstHorizontalLine}></hr>
+                        <div className={styles.timelineContent}>
+                            <p>1996</p>
+                            <h1>Masters in Education</h1>
+                            <p>Guru Ghasi Das University</p>
+                        </div>
+                    </li>
+                    <li></li>
+                </ul>
+            </div>
         </div>
     )
 }

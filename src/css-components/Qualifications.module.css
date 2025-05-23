@@ -19,4 +19,49 @@
 .timelineContainer {
     height: 60vh;
     border:solid red 4px;
+    width: 100vw;
+}
+
+.timelineList {
+    display:flex;
+    list-style-type: none;
+    /* padding-left: 0; */
+    height: 100%;
+
+
+}
+
+.firstListItem {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr auto 1fr; /* row 2 will match .sampleImage height */
+  width: fit-content; /* Adjust to content width */
+  /* align-items: center; */
+  justify-items: start;
+  gap: 0;
+}
+
+
+
+.sampleImage {
+    grid-column: 1;
+    grid-row: 2;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: blue;
+    color: red;
+    text-align:center;
+}
+
+.firstHorizontalLine {
+  grid-column: 2;
+  grid-row: 2;
+  width: 100%;
+  align-self: center;
+}
+
+.timelineContent {
+  grid-column: 1 / span 2;
+  grid-row: 3;
 }
