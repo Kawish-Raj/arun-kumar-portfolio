@@ -31,26 +31,31 @@
 
 }
 
+/********* GENERAL STYLING WILL DO AT END ********/
+.horizontalStyling {
+    border: solid black 2px;
+}
 
 .sampleImage {
-    grid-column: 1;
-    grid-row: 2;
     height: 25px;
     width: 25px;
     border-radius: 50%;
     background-color: black;
-    color: red;
-    text-align:center;
 }
 
+/********* FIRST LIST ITEM STUFF ONLY ************/
 .firstListItem {
   display: grid;
   grid-template-columns: auto 1fr;
-  grid-template-rows: 1fr auto 1fr; /* row 2 will match .sampleImage height */
-  width: fit-content; /* Adjust to content width */
-  /* align-items: center; */
+  grid-template-rows: 1fr auto 1fr; 
+  width: fit-content; 
   justify-items: start;
   gap: 0;
+}
+
+.firstListItem .sampleImage {
+    grid-column: 1;
+    grid-row: 2;
 }
 
 .firstHorizontalLine {
@@ -60,16 +65,22 @@
   align-self: center;
 }
 
-.timelineContent {
+.firstListItem .timelineContent {
   grid-column: 1 / span 2;
   grid-row: 1;
-  align-self: end;
 }
 
-.oddContent {
+
+/******************** GENERAL LIST ITEMS ********************/
+
+.oddItem .timelineContent {
     padding-bottom: 3vh;
+    align-self:end;
 }
 
-.horizontalStyling {
-    border: solid black 2px;
-}
+/* .listItem {
+
+} */
+
+
+
