@@ -22,13 +22,14 @@ export default function Qualifications({ setIsMainContent }) {
             </div>
             <div className={styles.timelineContainer}>
                 <ul className={styles.timelineList}>
-                    <li className={styles.firstListItem}>
-                        <div className={styles.sampleImage}>S</div>
-                        <hr className={styles.firstHorizontalLine}></hr>
-                        <div className={styles.timelineContent}>
-                            <p>1996</p>
-                            <h1>Masters in Education</h1>
-                            <p>Guru Ghasi Das University</p>
+                    <li className={`${styles.firstListItem} ${styles.oddItem}`}>
+                        <div className={styles.sampleImage}></div>
+                        <hr className={`${styles.firstHorizontalLine} ${styles.horizontalStyling}`}></hr>
+                        <div className={`${styles.timelineContent} ${styles.oddContent}`}>
+                            <p className={styles.datePara}>1996</p>
+                            <h1 className={styles.degreeHeading}>Masters in Education</h1>
+                            <p className={styles.universityName}>Guru Ghasi Das University,</p>
+                            <p className={styles.divison}>1st Division</p>
                         </div>
                     </li>
                     <li></li>
