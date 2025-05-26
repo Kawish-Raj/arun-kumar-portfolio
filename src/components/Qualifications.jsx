@@ -23,17 +23,15 @@ export default function Qualifications({ setIsMainContent }) {
         const timeline = timelineRef.current;
         const container = qualificationsRef.current;
 
+        container.style.height = (timeline.scrollWidth - timeline.clientWidth) + (window.innerHeight + 200) + 'px';
+
         function handleWheel(e) {
             const rect = container.getBoundingClientRect();
 
             // Check if qualifications section is at the top
-            const isPinned = rect.top <= 0 && rect.bottom > window.innerHeight / 2;
+            const isPinned = rect.top <= 0;
 
-            if (isPinned && timeline.scrollWidth > timeline.clientWidth) {
-                console.log("Prevention Fired");
-                // e.preventDefault(); // stop vertical scroll
-
-                // Scroll horizontally
+            if (isPinned) {
                 timeline.scrollLeft += e.deltaY;
             }
         }
