@@ -11,25 +11,27 @@ export default function Qualifications({ setIsMainContent }) {
     const divRef = useTopDistanceTrigger(setIsMainContent, 1);
 
     const timelineRef = useRef(null);
+    const qualificationsContainerRef = useRef(null);
     const qualificationsRef = useRef(null);
 
     const setRefs = (el) => {
-        qualificationsRef.current = el;
+        qualificationsContainerRef.current = el;
         divRef.current = el;
         scrollRef.current = el;
     }
 
     useEffect(() => {
         const timeline = timelineRef.current;
-        const container = qualificationsRef.current;
+        const container = qualificationsContainerRef.current;
+        const qualifications = qualificationsRef.current;
 
         container.style.height = (timeline.scrollWidth - timeline.clientWidth) + (window.innerHeight + 200) + 'px';
 
         function handleWheel(e) {
-            const rect = container.getBoundingClientRect();
+            const rect = qualifications.getBoundingClientRect();
 
             // Check if qualifications section is at the top
-            const isPinned = rect.top <= 0;
+            const isPinned = rect.top === 0;
 
             if (isPinned) {
                 timeline.scrollLeft += e.deltaY;
@@ -44,7 +46,8 @@ export default function Qualifications({ setIsMainContent }) {
         <div ref={setRefs} id="qualifications-id"
             className={`global-Qualifications homeComponent 
         ${styles.qualificationsContainer}`}>
-            <div className={`${styles.qualifications}`}>
+            <div className={`${styles.qualifications}`}
+            ref={qualificationsRef} >
                 <div className={styles.headContainer}>
                     <h1 className={styles.mainHeading} ref={headingRef}></h1>
                 </div>
