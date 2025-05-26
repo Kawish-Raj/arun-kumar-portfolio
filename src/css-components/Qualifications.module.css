@@ -1,10 +1,3 @@
-.qualificationsContainer {
-    height: 2692.8px;
-    background-color: blue;
-    background-image: url('../assets/demo-person.png');
-
-}
-
 .qualifications {
     font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     height: 100vh;
