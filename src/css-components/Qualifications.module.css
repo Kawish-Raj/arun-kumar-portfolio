@@ -16,19 +16,26 @@
     font-size: calc(5vh + 2.5vw);
 }
 
+/*************************************************************/
+/************** TIMELINE STYLES BELOW ************************/
+
 .timelineContainer {
     height: 60vh;
     /* border:solid red 4px; */
-    width: 100vw;
+    /* width: 100vw; */
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 .timelineList {
     display: flex;
     list-style-type: none;
-    /* padding-left: 0; */
+    padding-left: 50vw;
     height: 100%;
+}
 
-
+.timelineList > li {
+    flex-shrink: 0;
 }
 
 /********* GENERAL STYLING WILL DO AT END ********/
@@ -113,6 +120,7 @@
 }
 
 .oddItem .timelineContent {
+    grid-row: 1;
     padding-bottom: 3vh;
     align-self: end;
 }

@@ -43,6 +43,50 @@ export default function Qualifications({ setIsMainContent }) {
                             <p className={styles.divison}>1st Division</p>
                         </div>
                     </li>
+                    <li className={`${styles.listItem} ${styles.oddItem}`}>
+                        <hr className={`${styles.beforeHrLine} ${styles.horizontalStyling}`}></hr>
+                        <div className={`${styles.sampleImage} ${styles.sampleImageStyling}`}></div>
+                        <hr className={`${styles.afterHrLine} ${styles.horizontalStyling}`}></hr>
+                        <div className={styles.timelineContent}>
+                            <p className={styles.datePara}>1996</p>
+                            <h1 className={styles.degreeHeading}>Masters in Education</h1>
+                            <p className={styles.universityName}>Guru Ghasi Das University,</p>
+                            <p className={styles.divison}>1st Division</p>
+                        </div>
+                    </li>
+                    <li className={`${styles.listItem} ${styles.evenItem}`}>
+                        <hr className={`${styles.beforeHrLine} ${styles.horizontalStyling}`}></hr>
+                        <div className={`${styles.sampleImage} ${styles.sampleImageStyling}`}></div>
+                        <hr className={`${styles.afterHrLine} ${styles.horizontalStyling}`}></hr>
+                        <div className={styles.timelineContent}>
+                            <p className={styles.datePara}>1996</p>
+                            <h1 className={styles.degreeHeading}>Masters in Education</h1>
+                            <p className={styles.universityName}>Guru Ghasi Das University,</p>
+                            <p className={styles.divison}>1st Division</p>
+                        </div>
+                    </li>
+                    <li className={`${styles.listItem} ${styles.oddItem}`}>
+                        <hr className={`${styles.beforeHrLine} ${styles.horizontalStyling}`}></hr>
+                        <div className={`${styles.sampleImage} ${styles.sampleImageStyling}`}></div>
+                        <hr className={`${styles.afterHrLine} ${styles.horizontalStyling}`}></hr>
+                        <div className={styles.timelineContent}>
+                            <p className={styles.datePara}>1996</p>
+                            <h1 className={styles.degreeHeading}>Masters in Education</h1>
+                            <p className={styles.universityName}>Guru Ghasi Das University,</p>
+                            <p className={styles.divison}>1st Division</p>
+                        </div>
+                    </li>
+                    <li className={`${styles.listItem} ${styles.evenItem}`}>
+                        <hr className={`${styles.beforeHrLine} ${styles.horizontalStyling}`}></hr>
+                        <div className={`${styles.sampleImage} ${styles.sampleImageStyling}`}></div>
+                        <hr className={`${styles.afterHrLine} ${styles.horizontalStyling}`}></hr>
+                        <div className={styles.timelineContent}>
+                            <p className={styles.datePara}>1996</p>
+                            <h1 className={styles.degreeHeading}>Masters in Education</h1>
+                            <p className={styles.universityName}>Guru Ghasi Das University,</p>
+                            <p className={styles.divison}>1st Division</p>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
