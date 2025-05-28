@@ -40,18 +40,18 @@
 
 .headingContainer {
     font-family:'IBMPlexMono Nerd Font',monospace;
-    font-size: 3em;
+    font-size: 5em;
 }
 
-.headingWord {
+/* .headingWord {
     margin-bottom: -10px;
     margin-top: -10px;
-}
+} */
 
 .aboutmePara {
     margin-top: 50px;
     font-family:'IBMPlexMono Nerd Font',monospace;
-    font-size: 1.5em;
+    font-size: 2em;
 }
 
 .aboutmePara p {
@@ -59,7 +59,7 @@
 }
 
 .hiheadingword {
-    height: 66.4px;
+    height: 1.5em;
 }
 
 /************* SHOW MORE BUTTON CURSOR ANIMATIONS ***************/
@@ -69,18 +69,20 @@
   background-color: transparent;
   color: white;
   font-family: 'IBMPlexMono Nerd Font', monospace;
-  font-size: 1em;
-  border: 1px solid white;
+  font-size: 1.5em;
+  border: 2px solid white;
   padding: 8px 16px;
   cursor: none;
   border-radius: 3em;
   position:relative;
   overflow:hidden;
   z-index: 1;
+  transition: transform 0.3s ease-out;
 }
 
 .showMoreButton:hover {
     border-color: transparent;
+    transform: scale(1.25);
 }
 
 .showMoreButton::before {
