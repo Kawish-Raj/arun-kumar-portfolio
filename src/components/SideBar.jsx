@@ -17,7 +17,7 @@ export default function SideBar({  isMainContent, sideBarMode, sideBarQuali }) {
     return (
         <div className={`global-SideBar homeComponent ${styles.sideBar} 
         ${sideBarMode === 'dark-mode' ? styles.darkMode : ''} 
-        ${sideBarQuali ? styles.quali : ''}`}
+        ${sideBarQuali ? styles.sketchMode : ''}`}
         ref={parentDiv}>
             <div className={sideBarMode === 'dark-mode' ? styles.customCursor : ''} 
             ref={setCursorRefs}></div>

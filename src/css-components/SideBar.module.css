@@ -68,6 +68,10 @@
     font-weight: bold;
 }
 
+
+/*************** SIDEBAR DARK MODE ***************************/
+/*************************************************************/
+
 .sideBar.darkMode {
     cursor: none;
 }
@@ -175,4 +179,12 @@
   pointer-events: none; /* So it doesn't block clicks */
   z-index: 9999;
   transition: width,height,border-radius 0.1s ease-out;
+}
+
+/*********************SIDE BAR SKETCH MODE *********************************/
+/***************************************************************************/
+
+
+.sideBar.sketchMode {
+    font-family: 'Flabstick', monospace;
 }
