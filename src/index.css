@@ -36,3 +36,13 @@ html {
   font-family: 'IBMPlexMono Nerd Font';
   src: url('./assets/fonts/IBMPlexMono-Regular.ttf') format('truetype');
 }
+
+@font-face {
+  font-family: 'Flabstick';
+  src: url('./assets/fonts/FlapstickDEMO.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'KGB';
+  src: url('./assets/fonts/KGBlankSpaceSketch.ttf') format('truetype');
+}

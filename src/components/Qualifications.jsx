@@ -85,9 +85,9 @@ export default function Qualifications({ setIsMainContent }) {
                             <div className={`${styles.sampleImage} ${styles.sampleImageStyling}`}></div>
                             <hr className={`${styles.firstHorizontalLine} ${styles.horizontalStyling}`}></hr>
                             <div className={styles.timelineContent}>
-                                <p className={styles.datePara}>2008</p>
+                                <h2 className={styles.datePara}>2008</h2>
                                 <h1 className={styles.degreeHeading}>Masters in Education</h1>
-                                <p className={styles.universityName}>Guru Ghasi Das University,</p>
+                                <h3 className={styles.universityName}>Guru Ghasi Das University,</h3>
                                 <p className={styles.placeName}>Chhattisgarh.</p>
                                 <p className={styles.divison}>1st Division</p>
                             </div>
@@ -97,9 +97,9 @@ export default function Qualifications({ setIsMainContent }) {
                             <div className={`${styles.sampleImage} ${styles.sampleImageStyling}`}></div>
                             <hr className={`${styles.afterHrLine} ${styles.horizontalStyling}`}></hr>
                             <div className={styles.timelineContent}>
-                                <p className={styles.datePara}>1996</p>
+                                <h2 className={styles.datePara}>1996</h2>
                                 <h1 className={styles.degreeHeading}>Bachelors in Education</h1>
-                                <p className={styles.universityName}>B.R.Ambedkar Bihar University,</p>
+                                <h3 className={styles.universityName}>B.R.Ambedkar Bihar University,</h3>
                                 <p className={styles.placeName}>Muzaffarpur.</p>
                                 <p className={styles.divison}>1st Division</p>
                             </div>
@@ -109,9 +109,9 @@ export default function Qualifications({ setIsMainContent }) {
                             <div className={`${styles.sampleImage} ${styles.sampleImageStyling}`}></div>
                             <hr className={`${styles.afterHrLine} ${styles.horizontalStyling}`}></hr>
                             <div className={styles.timelineContent}>
-                                <p className={styles.datePara}>1989</p>
+                                <h2 className={styles.datePara}>1989</h2>
                                 <h1 className={styles.degreeHeading}>Masters in Arts</h1>
-                                <p className={styles.universityName}>B.R.Ambedkar University,</p>
+                                <h3 className={styles.universityName}>B.R.Ambedkar University,</h3>
                                 <p className={styles.placeName}>Muzaffarpur.</p>
                                 <p className={styles.divison}>1st Division</p>
                             </div>
@@ -121,9 +121,9 @@ export default function Qualifications({ setIsMainContent }) {
                             <div className={`${styles.sampleImage} ${styles.sampleImageStyling}`}></div>
                             <hr className={`${styles.afterHrLine} ${styles.horizontalStyling}`}></hr>
                             <div className={styles.timelineContent}>
-                                <p className={styles.datePara}>1987</p>
+                                <h2 className={styles.datePara}>1987</h2>
                                 <h1 className={styles.degreeHeading}>Bachelors in Arts(Honours)</h1>
-                                <p className={styles.universityName}>B.R.Ambedkar University,</p>
+                                <h3 className={styles.universityName}>B.R.Ambedkar University,</h3>
                                 <p className={styles.placeName}>Muzaffarpur.</p>
                                 <p className={styles.divison}>1st Division</p>
                             </div>
@@ -133,9 +133,9 @@ export default function Qualifications({ setIsMainContent }) {
                             <div className={`${styles.sampleImage} ${styles.sampleImageStyling}`}></div>
                             <hr className={`${styles.afterHrLine} ${styles.horizontalStyling}`}></hr>
                             <div className={styles.timelineContent}>
-                                <p className={styles.datePara}>1984</p>
+                                <h2 className={styles.datePara}>1984</h2>
                                 <h1 className={styles.degreeHeading}>Sr. Secondary School Examination</h1>
-                                <p className={styles.universityName}>Bihar Intermediate Education Council,</p>
+                                <h3 className={styles.universityName}>Bihar Intermediate Education Council,</h3>
                                 <p className={styles.placeName}>Patna.</p>
                                 <p className={styles.divison}>1st Division</p>
                             </div>
@@ -145,9 +145,9 @@ export default function Qualifications({ setIsMainContent }) {
                             <div className={`${styles.sampleImage} ${styles.sampleImageStyling}`}></div>
                             <hr className={`${styles.afterHrLine} ${styles.horizontalStyling}`}></hr>
                             <div className={styles.timelineContent}>
-                                <p className={styles.datePara}>1982</p>
+                                <h2 className={styles.datePara}>1982</h2>
                                 <h1 className={styles.degreeHeading}>Secondary School Examination</h1>
-                                <p className={styles.universityName}>Bihar School Examination Board,</p>
+                                <h3 className={styles.universityName}>Bihar School Examination Board,</h3>
                                 <p className={styles.placeName}>Patna.</p>
                                 <p className={styles.divison}>1st Division</p>
                             </div>
