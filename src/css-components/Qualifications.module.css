@@ -62,11 +62,21 @@
 
 .timelineContent {
     opacity: 0;
-    transition: opacity 1s ease-out;
+    transition: opacity 0.7s ease-out,
+    transform 0.5s cubic-bezier(.53,.82,.66,2.04);
 }
 
-.fadeIn {
+.oddItem > .timelineContent {
+    transform: translateY(80px);
+}
+
+.evenItem > .timelineContent {
+    transform: translateY(-80px);
+}
+
+.timelineContent.fadeIn {
     opacity: 1;
+    transform: translateY(0px);
 }
 
 /********* FIRST LIST ITEM STUFF ONLY ************/
