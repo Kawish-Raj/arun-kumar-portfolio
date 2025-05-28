@@ -6,7 +6,7 @@ import useCustomCursorInDiv from '../customhooks/useCustomCursorInDiv';
 import useCustomTEXTCursorInDiv from '../customhooks/useCustomTEXTCursorInDiv';
 import useCustomBUTTONCursorInDiv from '../customhooks/useCustomBUTTONCursorInDiv';
 
-export default function AboutMe({ setIsMainContent, setSideBarMode, isMainContent }) {
+export default function AboutMe({ setIsMainContent, setSideBarMode }) {
     const hiContent = useRef();
 
     const [show, setShow] = useState(false);

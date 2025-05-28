@@ -2,7 +2,7 @@ import styles from '../css-components/SideBar.module.css';
 import useCustomBUTTONCursorInDiv from '../customhooks/useCustomBUTTONCursorInDiv';
 import useCustomCursorInDiv from '../customhooks/useCustomCursorInDiv';
 
-export default function SideBar({ isMainContent, sideBarMode }) {
+export default function SideBar({  isMainContent, sideBarMode, sideBarQuali }) {
     const [aboutMeButton, aboutMeButtonCursor] = useCustomBUTTONCursorInDiv();
     const [parentDiv, customCursor] = useCustomCursorInDiv();
     const [qualButton, qualButtonCursor] = useCustomBUTTONCursorInDiv();
@@ -15,7 +15,9 @@ export default function SideBar({ isMainContent, sideBarMode }) {
         workButtonCursor.current = el;
     }
     return (
-        <div className={`global-SideBar homeComponent ${styles.sideBar} ${sideBarMode === 'dark-mode' ? styles.darkMode : ''}`}
+        <div className={`global-SideBar homeComponent ${styles.sideBar} 
+        ${sideBarMode === 'dark-mode' ? styles.darkMode : ''} 
+        ${sideBarQuali ? styles.quali : ''}`}
         ref={parentDiv}>
             <div className={sideBarMode === 'dark-mode' ? styles.customCursor : ''} 
             ref={setCursorRefs}></div>

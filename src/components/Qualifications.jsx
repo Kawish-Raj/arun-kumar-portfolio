@@ -3,11 +3,13 @@ import useTopDistanceTrigger from '../customhooks/useTopDistanceTrigger';
 import useTypeAppearStyle from '../customhooks/useTypeAppearStyle';
 import { qualificationsWordArray } from '../assets/Words';
 import { useEffect, useRef } from 'react';
+import useSideBarEnterTrigger from '../customhooks/useSideBarEnterTrigger';
 
-export default function Qualifications({ setIsMainContent }) {
+export default function Qualifications({ setIsMainContent, setSideBarQuali }) {
 
     const [scrollRef, headingRef] = useTypeAppearStyle(qualificationsWordArray, 0.6, 0.15);
-
+    const sideBarRef = useSideBarEnterTrigger(setSideBarQuali, 60, 'sketch-mode', null);
+    
     const divRef = useTopDistanceTrigger(setIsMainContent, 1);
 
     const timelineRef = useRef(null);
@@ -18,6 +20,7 @@ export default function Qualifications({ setIsMainContent }) {
         qualificationsContainerRef.current = el;
         divRef.current = el;
         scrollRef.current = el;
+        sideBarRef.current = el;
     }
 
     useEffect(() => {

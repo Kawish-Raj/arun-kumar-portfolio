@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-function useSideBarEnterTrigger(callBack, decidingTopDis = 80) {
+function useSideBarEnterTrigger(callBack, decidingTopDis = 80, enterVal = 'dark-mode', exitVal = 'light-mode') {
     const ref = useRef(null);
     const prevDistanceFromTop = useRef(150);
     const prevBottomDistFromTop = useRef(window.innerHeight);
@@ -15,10 +15,10 @@ function useSideBarEnterTrigger(callBack, decidingTopDis = 80) {
     
                 if ((prevDistanceFromTop.current > decidingTopDis && currDistanceFromTop < decidingTopDis) ||
                     (prevBottomDistFromTop.current < decidingTopDis && currBottomDistFromTop > decidingTopDis)) {
-                    callBack('dark-mode');
+                    callBack(enterVal);
                 } else if ((prevDistanceFromTop.current < decidingTopDis && currDistanceFromTop > decidingTopDis) ||
                     (prevBottomDistFromTop.current > decidingTopDis && currBottomDistFromTop < decidingTopDis)) {
-                    callBack('light-mode');
+                    callBack(exitVal);
                 }
     
                 prevDistanceFromTop.current = currDistanceFromTop;

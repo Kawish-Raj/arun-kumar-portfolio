@@ -11,13 +11,14 @@ function App() {
 
   const [isMainContent, setIsMainContent] = useState(null);
   const [sideBarMode, setSideBarMode] = useState('light-mode');
+  const [sideBarQuali, setSideBarQuali] = useState(null);
 
   return (
     <div className = "app-container">
-      <SideBar isMainContent = {isMainContent} sideBarMode={sideBarMode}/>
+      <SideBar  isMainContent = {isMainContent} sideBarMode={sideBarMode} sideBarQuali={sideBarQuali}/>
       <HeroArea />
-      <AboutMe setIsMainContent = {setIsMainContent} setSideBarMode={setSideBarMode} isMainContent={isMainContent}/>
-      <Qualifications setIsMainContent={setIsMainContent}/>
+      <AboutMe setIsMainContent = {setIsMainContent} setSideBarMode={setSideBarMode} />
+      <Qualifications setIsMainContent={setIsMainContent} setSideBarQuali={setSideBarQuali}/>
       <Work setIsMainContent = {setIsMainContent}/>
       <Footer />
     </div>
