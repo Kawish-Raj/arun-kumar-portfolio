@@ -188,3 +188,24 @@
 .sideBar.sketchMode {
     font-family: 'Flabstick', monospace;
 }
+
+.sideBar.sketchMode a {
+    background-size: 0% 0%;
+    position: relative;
+}
+
+.sideBar.sketchMode a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 8%;
+    background-color: black;
+    transition: width 0.1s ease-out;
+}
+
+.sideBar.sketchMode a:hover::after {
+    width: 100%;
+}
