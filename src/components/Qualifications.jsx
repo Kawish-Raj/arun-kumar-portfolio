@@ -42,6 +42,33 @@ export default function Qualifications({ setIsMainContent }) {
 
         return () => window.removeEventListener('wheel', handleWheel);
     }, []);
+
+    useEffect(() => {
+    const listItems = document.querySelectorAll(`li > .${styles.timelineContent}`);
+
+    const observerOptions = {
+        root: null, // viewport
+        threshold: 0.8 // 80% of item visible
+    };
+
+    const observerCallback = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add(`${styles.fadeIn}`);
+                // observer.unobserve(entry.target); // Optional: remove observer after fade-in
+            }
+            else {
+                entry.target.classList.remove(styles.fadeIn);
+            }
+        });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    listItems.forEach(li => observer.observe(li));
+
+    return () => observer.disconnect(); // Clean up
+}, []);
     return (
         <div ref={setRefs} id="qualifications-id"
             className={`global-Qualifications homeComponent 

@@ -60,6 +60,15 @@
     background-color: black;
 }
 
+.timelineContent {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+}
+
+.fadeIn {
+    opacity: 1;
+}
+
 /********* FIRST LIST ITEM STUFF ONLY ************/
 .firstListItem {
     display: grid;
