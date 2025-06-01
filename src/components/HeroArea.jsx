@@ -17,18 +17,18 @@ export default function HeroArea() {
             const scrollY = window.scrollY;
             const viewportHeight = window.innerHeight;
 
-            if (scrollY < (0.9 * viewportHeight)) {
-                refs.current.forEach((ref, idx) => {
-                    const speed = speeds[idx % speeds.length];
-                    const rotationSpeed = rotationSpeeds[idx % rotationSpeeds.length];
-                    if (ref.current) {
-                        ref.current.style.transform = `translateY(${scrollY * speed}px) rotate(${scrollY * rotationSpeed}deg)`;
-                    }
-                });
-            }
+
+            refs.current.forEach((ref, idx) => {
+                const speed = speeds[idx % speeds.length];
+                const rotationSpeed = rotationSpeeds[idx % rotationSpeeds.length];
+                if (ref.current) {
+                    ref.current.style.transform = `translateY(${scrollY * speed}px) rotate(${scrollY * rotationSpeed}deg)`;
+                }
+            });
         };
 
         window.addEventListener('scroll', handleScroll);
+        handleScroll();
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
