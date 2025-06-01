@@ -9,7 +9,7 @@ export default function Qualifications({ setIsMainContent, setSideBarQuali }) {
 
     const [scrollRef, headingRef] = useTypeAppearStyle(qualificationsWordArray, 0.6, 0.15);
     const sideBarRef = useSideBarEnterTrigger(setSideBarQuali, 60, 'sketch-mode', null);
-    
+
     const divRef = useTopDistanceTrigger(setIsMainContent, 1);
 
     const timelineRef = useRef(null);
@@ -30,54 +30,58 @@ export default function Qualifications({ setIsMainContent, setSideBarQuali }) {
 
         container.style.height = (timeline.scrollWidth - timeline.clientWidth) + (window.innerHeight + 200) + 'px';
 
-        function handleWheel(e) {
+        function handleWheel() {
             const rect = qualifications.getBoundingClientRect();
 
-            // Check if qualifications section is at the top
-            const isPinned = rect.top === 0;
+            const scrollY = window.scrollY;
+            const offsetTop = container.offsetTop;
+            const pinStart = offsetTop;
+            const pinEnd = offsetTop + timeline.scrollWidth - timeline.clientWidth;
 
-            if (isPinned) {
-                timeline.scrollLeft += e.deltaY;
+            if ((scrollY >= pinStart && scrollY <= pinEnd)) {
+                const scrollLeft = scrollY - pinStart;
+                timeline.scrollLeft = scrollLeft;
             }
+            console.log((scrollLeft - timeline.scrollLeft));
         }
 
-        window.addEventListener('wheel', handleWheel, { passive: false });
+        window.addEventListener('scroll', handleWheel, { passive: false });
 
-        return () => window.removeEventListener('wheel', handleWheel);
+        return () => window.removeEventListener('scroll', handleWheel);
     }, []);
 
     useEffect(() => {
-    const listItems = document.querySelectorAll(`li > .${styles.timelineContent}`);
+        const listItems = document.querySelectorAll(`li > .${styles.timelineContent}`);
 
-    const observerOptions = {
-        root: null, // viewport
-        threshold: 0.8 // 80% of item visible
-    };
+        const observerOptions = {
+            root: null, // viewport
+            threshold: 0.8 // 80% of item visible
+        };
 
-    const observerCallback = (entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add(`${styles.fadeIn}`);
-                // observer.unobserve(entry.target); // Optional: remove observer after fade-in
-            }
-            else {
-                entry.target.classList.remove(styles.fadeIn);
-            }
-        });
-    };
+        const observerCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add(`${styles.fadeIn}`);
+                    // observer.unobserve(entry.target); // Optional: remove observer after fade-in
+                }
+                else {
+                    entry.target.classList.remove(styles.fadeIn);
+                }
+            });
+        };
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-    listItems.forEach(li => observer.observe(li));
+        listItems.forEach(li => observer.observe(li));
 
-    return () => observer.disconnect(); // Clean up
-}, []);
+        return () => observer.disconnect(); // Clean up
+    }, []);
     return (
         <div ref={setRefs} id="qualifications-id"
             className={`global-Qualifications homeComponent 
         ${styles.qualificationsContainer}`}>
             <div className={`${styles.qualifications}`}
-            ref={qualificationsRef} >
+                ref={qualificationsRef} >
                 <div className={styles.headContainer}>
                     <h1 className={styles.mainHeading} ref={headingRef}></h1>
                 </div>
