@@ -27,7 +27,7 @@
     height: 60vh;
     /* border:solid red 4px; */
     /* width: 100vw; */
-    overflow-x: auto;
+    overflow-x: hidden;
     white-space: nowrap;
 
     /* Hide scrollbar */
