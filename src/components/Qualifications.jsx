@@ -42,7 +42,6 @@ export default function Qualifications({ setIsMainContent, setSideBarQuali }) {
                 const scrollLeft = scrollY - pinStart;
                 timeline.scrollLeft = scrollLeft;
             }
-            console.log((scrollLeft - timeline.scrollLeft));
         }
 
         window.addEventListener('scroll', handleWheel, { passive: false });
