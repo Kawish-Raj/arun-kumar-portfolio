@@ -28,7 +28,7 @@ export default function Qualifications({ setIsMainContent, setSideBarQuali }) {
         const container = qualificationsContainerRef.current;
         const qualifications = qualificationsRef.current;
 
-        container.style.height = (timeline.scrollWidth - timeline.clientWidth) + (window.innerHeight + 200) + 'px';
+        container.style.height = (timeline.scrollWidth - timeline.clientWidth)  + 'px';
 
         function handleWheel() {
             const rect = qualifications.getBoundingClientRect();
