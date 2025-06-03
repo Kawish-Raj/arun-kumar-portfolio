@@ -44,6 +44,7 @@
     list-style-type: none;
     padding-left: 50vw;
     height: 100%;
+    width: 100%;
 }
 
 .timelineList > li {
