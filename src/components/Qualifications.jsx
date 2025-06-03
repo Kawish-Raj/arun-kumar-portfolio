@@ -24,11 +24,21 @@ export default function Qualifications({ setIsMainContent, setSideBarQuali }) {
     }
 
     useEffect(() => {
+        const onChangeContainer = qualificationsContainerRef.current;
+        const onChangeTimeline = timelineRef.current;
+
+        onChangeContainer.style.height = ((onChangeTimeline.scrollWidth - onChangeTimeline.clientWidth)+ (window.innerHeight) - ((window.innerWidth)/2)) + 'px';
+        console.log('onchange useeffect called');
+        console.log('height of container: ',onChangeContainer.style.height);
+        console.log('width of the timeline: ', (onChangeTimeline.scrollWidth - onChangeTimeline.clientWidth));
+    },[window.innerWidth]);
+
+    useEffect(() => {
         const timeline = timelineRef.current;
         const container = qualificationsContainerRef.current;
         const qualifications = qualificationsRef.current;
 
-        container.style.height = (timeline.scrollWidth - timeline.clientWidth)  + 'px';
+        // container.style.height = (timeline.scrollWidth - timeline.clientWidth)  + 'px';
 
         function handleWheel() {
             const rect = qualifications.getBoundingClientRect();
