@@ -156,7 +156,7 @@ export default function Qualifications({ setIsMainContent, setSideBarQuali }) {
                                 <p className={styles.divison}>1st Division</p>
                             </div>
                         </li>
-                        <li className={`${styles.listItem} ${styles.evenItem}`}>
+                        <li className={`${styles.listItem} ${styles.evenItem} ${styles.lastItem}`}>
                             <hr className={`${styles.beforeHrLine} ${styles.horizontalStyling}`}></hr>
                             <div className={`${styles.sampleImage} ${styles.sampleImageStyling}`}></div>
                             <hr className={`${styles.afterHrLine} ${styles.horizontalStyling}`}></hr>
@@ -167,6 +167,7 @@ export default function Qualifications({ setIsMainContent, setSideBarQuali }) {
                                 <p className={styles.placeName}>Patna.</p>
                                 <p className={styles.divison}>1st Division</p>
                             </div>
+                            <div className={`${styles.lastRectImage} ${styles.rectImageStyling}`}></div>
                         </li>
                     </ul>
                 </div>

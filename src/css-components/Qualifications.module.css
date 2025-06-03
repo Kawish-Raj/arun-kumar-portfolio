@@ -63,6 +63,13 @@
     background-color: black;
 }
 
+.rectImageStyling {
+    height: 25px;
+    width: 25px;
+    background-color: black;
+    margin-right: 50px;
+}
+
 .timelineContent {
     opacity: 0;
     transition: opacity 0.7s ease-out,
@@ -159,4 +166,16 @@
     grid-row: 1;
     padding-bottom: 3vh;
     align-self: end;
+}
+
+/************ Last Item *********************/
+
+.listItem.lastItem {
+    grid-template-columns: auto auto 1fr auto;
+    grid-template-rows: 1fr auto 1fr;
+}
+
+.lastRectImage {
+    grid-column: 4;
+    grid-row: 2;
 }
