@@ -49,17 +49,17 @@ export default function Qualifications({ setIsMainContent, setSideBarQuali }) {
         }
 
         // Event listner to listen to chnage in window width
-        function handleResize() {
-            setWindowWidth(window.innerWidth);
-        }
+        // function handleResize() {
+        //     setWindowWidth(window.innerWidth);
+        // }
 
         window.addEventListener('scroll', handleWheel, { passive: false });
-        window.addEventListener('resize', handleResize);
+        // window.addEventListener('resize', handleResize);
 
 
         return () => {
             window.removeEventListener('scroll', handleWheel);
-            window.removeEventListener('resize', handleResize);
+            // window.removeEventListener('resize', handleResize);
         }
     }, []);
 
