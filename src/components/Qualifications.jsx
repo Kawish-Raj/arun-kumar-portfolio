@@ -2,12 +2,14 @@ import styles from '../css-components/Qualifications.module.css';
 import useTopDistanceTrigger from '../customhooks/useTopDistanceTrigger';
 import useTypeAppearStyle from '../customhooks/useTypeAppearStyle';
 import { qualificationsWordArray } from '../assets/Words';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import useSideBarEnterTrigger from '../customhooks/useSideBarEnterTrigger';
 
 export default function Qualifications({ setIsMainContent, setSideBarQuali }) {
 
     const [scrollRef, headingRef] = useTypeAppearStyle(qualificationsWordArray, 0.6, 0.15);
+    // const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
     const sideBarRef = useSideBarEnterTrigger(setSideBarQuali, 60, 'sketch-mode', null);
 
     const divRef = useTopDistanceTrigger(setIsMainContent, 1);
@@ -23,16 +25,8 @@ export default function Qualifications({ setIsMainContent, setSideBarQuali }) {
         sideBarRef.current = el;
     }
 
-    useEffect(() => {
-        const onChangeContainer = qualificationsContainerRef.current;
-        const onChangeTimeline = timelineRef.current;
 
-        onChangeContainer.style.height = ((onChangeTimeline.scrollWidth - onChangeTimeline.clientWidth)+ (window.innerHeight) - ((window.innerWidth)/2)) + 'px';
-        console.log('onchange useeffect called');
-        console.log('height of container: ',onChangeContainer.style.height);
-        console.log('width of the timeline: ', (onChangeTimeline.scrollWidth - onChangeTimeline.clientWidth));
-    },[window.innerWidth]);
-
+// EVENT LISTNERs useEffect below
     useEffect(() => {
         const timeline = timelineRef.current;
         const container = qualificationsContainerRef.current;
@@ -54,10 +48,39 @@ export default function Qualifications({ setIsMainContent, setSideBarQuali }) {
             }
         }
 
-        window.addEventListener('scroll', handleWheel, { passive: false });
+        // Event listner to listen to chnage in window width
+        function handleResize() {
+            setWindowWidth(window.innerWidth);
+        }
 
-        return () => window.removeEventListener('scroll', handleWheel);
+        window.addEventListener('scroll', handleWheel, { passive: false });
+        window.addEventListener('resize', handleResize);
+
+
+        return () => {
+            window.removeEventListener('scroll', handleWheel);
+            window.removeEventListener('resize', handleResize);
+        }
     }, []);
+
+// useEffect to adjust qualification width according to window width
+    useEffect(() => {
+        const onChangeContainer = qualificationsContainerRef.current;
+        const onChangeTimeline = timelineRef.current;
+
+        onChangeContainer.style.height = ((onChangeTimeline.scrollWidth - onChangeTimeline.clientWidth)) + 'px';
+    }, []);
+
+    // useEffect(() => {
+        
+    //     const onChangeContainer = qualificationsContainerRef.current;
+    //     const onChangeTimeline = timelineRef.current;
+
+    //     console.log('onchange useeffect called');
+    //     console.log('height of screen', window.innerHeight);
+    //     console.log('height of container: ', (onChangeContainer.style.height));
+    //     console.log('width of the timeline: ', (onChangeTimeline.scrollWidth - onChangeTimeline.clientWidth));
+    // }, [windowWidth]);
 
     useEffect(() => {
         const listItems = document.querySelectorAll(`li > .${styles.timelineContent}`);
@@ -87,7 +110,7 @@ export default function Qualifications({ setIsMainContent, setSideBarQuali }) {
     }, []);
     return (
         <div ref={setRefs} id="qualifications-id"
-            className={`global-Qualifications homeComponent 
+            className={`global-Qualifications 
         ${styles.qualificationsContainer}`}>
             <div className={`${styles.qualifications}`}
                 ref={qualificationsRef} >
