@@ -15,26 +15,48 @@ export default function Work({ setIsMainContent }) {
 
     useEffect(() => {
         const workComponent = workComponentRef.current;
-        const halfTransparentEl = workComponent.querySelector(`.${styles.halfTransparent}`);
+        const firstHeadingEl = workComponent.querySelector(`.${styles.firstHeading}`);
+        const firstExperienceEl = workComponent.querySelector(`.${styles.firstExperience}`);
 
         function handleScroll() {
             const scrollY = window.scrollY;
             const offsetTop = workComponent.offsetTop;
             const pinStart = offsetTop;
             const pinEnd = offsetTop + workComponent.getBoundingClientRect().height;
+            const noOfExperiences = 3;
+            const experienceLength = workComponent.getBoundingClientRect().height/noOfExperiences;
 
-            if (scrollY >= pinStart && scrollY <= pinEnd) {
+            console.log("experience length: ",experienceLength)
+            console.log("container length: ", workComponent.getBoundingClientRect().height);
+            if(scrollY < pinStart) {
+                firstHeadingEl.style.maskImage = `radial-gradient(circle, black 100%, transparent 100%)`;
+                firstHeadingEl.style.webkitMaskImage = `radial-gradient(circle, black 100%, transparent 100%)`;
+            }
+
+            else if (scrollY >= pinStart && scrollY <= (pinStart + experienceLength)) {
                 const percentage = (100 - ((scrollY - pinStart) / window.innerHeight) * 100);
 
                 const clamped = Math.max(0, Math.min(percentage, 100)); // keep between 0–100
 
-                halfTransparentEl.style.maskImage = `radial-gradient(circle, black ${clamped}%, transparent ${clamped}%)`;
-                halfTransparentEl.style.webkitMaskImage = `radial-gradient(circle, black ${clamped}%, transparent ${clamped}%)`;
+                firstHeadingEl.style.maskImage = `radial-gradient(circle, black ${clamped}%, transparent ${clamped}%)`;
+                firstHeadingEl.style.webkitMaskImage = `radial-gradient(circle, black ${clamped}%, transparent ${clamped}%)`;
+
+                firstExperienceEl.style.maskImage = `radial-gradient(circle, black 100%, transparent 100%)`;
+                firstExperienceEl.style.webkitMaskImage = `radial-gradient(circle, black 100%, transparent 100%)`;
             }
-            else if(scrollY < pinStart) {
-                halfTransparentEl.style.maskImage = `radial-gradient(circle, black 100%, transparent 100%)`;
-                halfTransparentEl.style.webkitMaskImage = `radial-gradient(circle, black 100%, transparent 100%)`;
+            else if (scrollY >= (pinStart + experienceLength) && scrollY <= (pinStart + (2*experienceLength))) {
+
+                firstHeadingEl.style.maskImage = `radial-gradient(circle, black 0%, transparent 0%)`;
+                firstHeadingEl.style.webkitMaskImage = `radial-gradient(circle, black 0%, transparent 0%)`;
+
+                const percentage = (100 - ((scrollY - (pinStart + experienceLength)) / window.innerHeight) * 100);
+
+                const clamped = Math.max(0, Math.min(percentage, 100)); // keep between 0–100
+
+                firstExperienceEl.style.maskImage = `radial-gradient(circle, black ${clamped}%, transparent ${clamped}%)`;
+                firstExperienceEl.style.webkitMaskImage = `radial-gradient(circle, black ${clamped}%, transparent ${clamped}%)`;
             }
+       
         }
 
         window.addEventListener('scroll', handleScroll, { passive: false });
@@ -49,11 +71,14 @@ export default function Work({ setIsMainContent }) {
         <div ref={setRefs} id="work-id" className={`global-Work ${styles.work}`}>
             {/* <h1>Work and Experiences</h1> */}
             <div className={styles.stickyWorkContainer}>
-                <div className={styles.halfTransparent}>
-                    <h1>Ibrahim</h1>
+                <div className={styles.firstHeading}>
+                    <h1>My Work and Experience</h1>
                 </div>
-                <div className={styles.theOneBellow}>
+                <div className={styles.firstExperience}>
                     <h1>Ginger</h1>
+                </div>
+                <div className={styles.secondExperience}>
+                    <h1>Kawish</h1>
                 </div>
             </div>
         </div>

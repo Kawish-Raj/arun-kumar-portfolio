@@ -1,6 +1,6 @@
 .work {
     position:relative;
-    height: 200vh;
+    height: 420vh; /* 60 per screen */
 }
 
 .stickyWorkContainer {
@@ -9,40 +9,65 @@
     top:0;
 }
 
+/*********** WORK AND EXPERIENCE DIVS STYLES **************/
 
-.halfTransparent {
-    position:relative;
-    width: 100%;
-    height: 100vh;
-    /* Example height */
-    background: red;
-    /* Or your actual background */
-    z-index: 5;
-
-    /* Make bottom half transparent using a mask */
-    mask-image: radial-gradient(circle, black 100%, transparent 100%);
-    mask-size: 100% 100%;
-    mask-repeat: no-repeat;
-
-    /* Safari/WebKit support */
-    -webkit-mask-image: radial-gradient(circle, black 100%, transparent 100);
-    -webkit-mask-size: 100% 100%;
-    -webkit-mask-repeat: no-repeat;
-}
-
-.theOneBellow {
-    z-index: 3;
-    position: absolute;
-    top:0;
-    background-color: blue;
-    height: 100vh;
-    width: 100%;
-}
-
+/******* COMMON TO ALL ******************/
 .stickyWorkContainer > div {
     display:flex;
     justify-content: center;
     align-items: center;
-    font-size: 100px;
+    font-size: 10vh;
+    text-align: center;
+    width: 100%;
+    height: 100vh;
 }
+
+/********* Heading *************/
+.firstHeading {
+    z-index: 20;
+    position:relative;
+    background: red;
+    
+
+    /* Make bottom half transparent using a mask */
+    /* mask-image: radial-gradient(circle, black 100%, transparent 100%);
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat; */
+
+    /* Safari/WebKit support */
+    /* -webkit-mask-image: radial-gradient(circle, black 100%, transparent 100);
+    -webkit-mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat; */
+}
+
+/*********** First Experience *************/
+.firstExperience {
+    z-index: 18;
+    position: absolute;
+    top:0;
+    background-color: blue;
+}
+
+/*********** Second Experience *************/
+.secondExperience {
+    z-index: 16;
+    position: absolute;
+    top:0;
+    background-color: yellow;
+}
+
+
+/*********** Third Experience *************/
+
+
+
+/*********** Fourth Experience *************/
+
+
+
+/*********** Fifth Experience *************/
+
+
+
+
 
