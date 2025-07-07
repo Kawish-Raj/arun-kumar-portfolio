@@ -1,0 +1,41 @@
+.work {
+    position:relative;
+    height: 200vh;
+}
+
+.stickyWorkContainer {
+    position:sticky;
+    height: 100vh;
+    top:0;
+}
+
+
+.halfTransparent {
+    position:relative;
+    width: 100%;
+    height: 100vh;
+    /* Example height */
+    background: red;
+    /* Or your actual background */
+    z-index: 5;
+
+    /* Make bottom half transparent using a mask */
+    mask-image: linear-gradient(to bottom, black 100%, transparent 100%);
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+
+    /* Safari/WebKit support */
+    -webkit-mask-image: linear-gradient(to bottom, black 100%, transparent 100);
+    -webkit-mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+}
+
+.theOneBellow {
+    z-index: 3;
+    position: absolute;
+    top:0;
+    background-color: blue;
+    height: 100vh;
+    width: 100%;
+}
+
