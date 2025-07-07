@@ -53,7 +53,7 @@ export default function Work({ setIsMainContent }) {
                     <h1>Ibrahim</h1>
                 </div>
                 <div className={styles.theOneBellow}>
-                    <h1>Ginger Nigger</h1>
+                    <h1>Ginger</h1>
                 </div>
             </div>
         </div>
