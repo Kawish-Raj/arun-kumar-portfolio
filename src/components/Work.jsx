@@ -13,6 +13,7 @@ export default function Work({ setIsMainContent }) {
 
     const divRef = useTopDistanceTrigger(setIsMainContent, 2);
 
+    // useEffect for circle transition
     useEffect(() => {
         const workComponent = workComponentRef.current;
         const firstHeadingEl = workComponent.querySelector(`.${styles.firstHeading}`);
@@ -41,8 +42,8 @@ export default function Work({ setIsMainContent }) {
                 firstHeadingEl.style.maskImage = `radial-gradient(circle, black ${clamped}%, transparent ${clamped}%)`;
                 firstHeadingEl.style.webkitMaskImage = `radial-gradient(circle, black ${clamped}%, transparent ${clamped}%)`;
 
-                firstExperienceEl.style.maskImage = `radial-gradient(circle, black 100%, transparent 100%)`;
-                firstExperienceEl.style.webkitMaskImage = `radial-gradient(circle, black 100%, transparent 100%)`;
+                firstExperienceEl.style.maskImage = `linear-gradient(to bottom, black 100%, transparent 100%)`;
+                firstExperienceEl.style.webkitMaskImage = `radial-gradient(to bottom, black 100%, transparent 100%)`;
             }
             else if (scrollY >= (pinStart + experienceLength) && scrollY <= (pinStart + (2*experienceLength))) {
 
@@ -53,8 +54,8 @@ export default function Work({ setIsMainContent }) {
 
                 const clamped = Math.max(0, Math.min(percentage, 100)); // keep between 0–100
 
-                firstExperienceEl.style.maskImage = `radial-gradient(circle, black ${clamped}%, transparent ${clamped}%)`;
-                firstExperienceEl.style.webkitMaskImage = `radial-gradient(circle, black ${clamped}%, transparent ${clamped}%)`;
+                firstExperienceEl.style.maskImage = `linear-gradient(to bottom, black ${clamped}%, transparent ${clamped}%)`;
+                firstExperienceEl.style.webkitMaskImage = `linear-gradient(bottom, black ${clamped}%, transparent ${clamped}%)`;
             }
        
         }
@@ -72,7 +73,9 @@ export default function Work({ setIsMainContent }) {
             {/* <h1>Work and Experiences</h1> */}
             <div className={styles.stickyWorkContainer}>
                 <div className={styles.firstHeading}>
-                    <h1>My Work and Experience</h1>
+                    <h1>My Work</h1>
+                    <h1>and</h1> 
+                    <h1>Experience</h1>
                 </div>
                 <div className={styles.firstExperience}>
                     <h1>Ginger</h1>
