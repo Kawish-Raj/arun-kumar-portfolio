@@ -43,20 +43,20 @@
 }
 
 .expHeading {
-    font-size: 14vh;
+    font-size: calc(8vh + 3vw);
+    padding-bottom: 2vh;
 }
 
 .firstPara, .secondPara {
     font-size: 3.25vh;
     color: rgb(255, 255, 255);
     width: 30vw;
+    padding: 10px 0px;
 }
 
-.imageContent {
+.expImage {
     width: 400px;
-    height: 300px;
-    border: solid red 4px;
-    text-align: center;
+    height: auto;
 }
 
 /********* Heading *************/

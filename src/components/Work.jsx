@@ -1,6 +1,8 @@
 import styles from '../css-components/Work.module.css';
 import useTopDistanceTrigger from '../customhooks/useTopDistanceTrigger';
 import { useRef, useEffect } from 'react';
+import papaPlaying from "../assets/papa-images/papa-playing.jpg"
+import papaSitting from "../assets/papa-images/papa-sitting.jpg"
 
 export default function Work({ setIsMainContent }) {
 
@@ -122,7 +124,7 @@ export default function Work({ setIsMainContent }) {
                         no one will notice cause its filler content my mate.</p>
                         </div>
                         <div className={styles.imageContent}>
-                            Image Plcaeholder
+                            <img className={styles.expImage} src={papaSitting} alt='sir playing image'></img>
                         </div>
                     </div>
                 </div>
