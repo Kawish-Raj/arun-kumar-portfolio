@@ -105,10 +105,26 @@ export default function Work({ setIsMainContent }) {
                     <h1>Experience</h1>
                 </div>
                 <div className={styles.firstExperience}>
-                    <h1>Ginger</h1>
+                    <div className={styles.textContent}>
+                    <h1 className={styles.expHeading}>Experience 1</h1>
+                    <p className={styles.firstPara}>
+                        Just writing whatever I want to.
+                        I didn't want to use Lrem Impusm cause it's for
+                        losers. I don't get it why it's popular when you can 
+                        fill the paras with whatever you want. Just write anything and 
+                        no one will notice cause its filler content my mate. </p>
+                    <p className={styles.secondPara}>Just writing whatever I want to.
+                        I didn't want to use Lrem Impusm cause it's for
+                        losers. I don't get it why it's popular when you can 
+                        fill the paras with whatever you want. Just write anything and 
+                        no one will notice cause its filler content my mate.</p>
+                    </div>
+                    <div className = {styles.imageContent}>
+                        Image Plcaeholder
+                    </div>
                 </div>
                 <div className={styles.secondExperience}>
-                    <h1>Kawish</h1>
+                    <h1 classname={styles.expHeading}>Kawish</h1>
                 </div>
             </div>
         </div>

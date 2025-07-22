@@ -23,6 +23,22 @@
     text-align: center;
 }
 
+.expHeading {
+    font-size: 10vh;
+}
+
+.firstPara, .secondPara {
+    font-size: 4vh;
+    color: rgb(255, 255, 255)
+}
+
+.imageContent {
+    width: 400px;
+    height: 300px;
+    border: solid red 4px;
+    text-align: center;
+}
+
 /********* Heading *************/
 .firstHeading {
     z-index: 20;
@@ -54,7 +70,8 @@
     z-index: 18;
     position: absolute;
     top:0;
-    background-color: blue;
+    background-color: rgb(61, 102, 129);
+    color: rgb(213, 222, 221);
 }
 
 /*********** Second Experience *************/
