@@ -23,21 +23,31 @@ export default function Work({ setIsMainContent }) {
             const scrollY = window.scrollY;
             const offsetTop = workComponent.offsetTop;
             const pinStart = offsetTop;
-            const pinEnd = offsetTop + workComponent.getBoundingClientRect().height;
+            // const pinEnd = offsetTop + workComponent.getBoundingClientRect().height;
             const noOfExperiences = 3;
             const experienceLength = workComponent.getBoundingClientRect().height/noOfExperiences;
-
+            const windowHeight = window.innerHeight;
+            const residueLength = experienceLength - windowHeight;
+            
             console.log("experience length: ",experienceLength)
             console.log("container length: ", workComponent.getBoundingClientRect().height);
+            console.log("window height", window.innerHeight);
+
+            //BEFORE first heading
+            //  scrollY < pinStart
             if(scrollY < pinStart) {
                 firstHeadingEl.style.maskImage = `radial-gradient(circle, black 100%, transparent 100%)`;
                 firstHeadingEl.style.webkitMaskImage = `radial-gradient(circle, black 100%, transparent 100%)`;
             }
 
-            else if (scrollY >= pinStart && scrollY <= (pinStart + experienceLength)) {
+            //TRANSITION from First Head --> First Experience
+            //  scrollY >= pinStart && scrollY <= (pinStart + windowHeight)
+            else if (scrollY >= pinStart && scrollY <= (pinStart + windowHeight)) {
                 const percentage = (100 - ((scrollY - pinStart) / window.innerHeight) * 100);
 
                 const clamped = Math.max(0, Math.min(percentage, 100)); // keep between 0–100
+
+                firstHeadingEl.style.zIndex = "20";
 
                 firstHeadingEl.style.maskImage = `radial-gradient(circle, black ${clamped}%, transparent ${clamped}%)`;
                 firstHeadingEl.style.webkitMaskImage = `radial-gradient(circle, black ${clamped}%, transparent ${clamped}%)`;
@@ -45,17 +55,34 @@ export default function Work({ setIsMainContent }) {
                 firstExperienceEl.style.maskImage = `linear-gradient(to bottom, black 100%, transparent 100%)`;
                 firstExperienceEl.style.webkitMaskImage = `radial-gradient(to bottom, black 100%, transparent 100%)`;
             }
-            else if (scrollY >= (pinStart + experienceLength) && scrollY <= (pinStart + (2*experienceLength))) {
 
+            //DURING First Experience Residual Part
+            //  scrollY >= (pinStart + windowHeight) && scrollY <= (pinStart + experienceLength)
+            else if(scrollY >= (pinStart + windowHeight) && scrollY <= (pinStart + experienceLength)){
                 firstHeadingEl.style.maskImage = `radial-gradient(circle, black 0%, transparent 0%)`;
                 firstHeadingEl.style.webkitMaskImage = `radial-gradient(circle, black 0%, transparent 0%)`;
+                firstHeadingEl.style.zIndex = "-1";
+            }
+
+            //TRANSITION from First Experience --> Second Experience
+            //  scrollY >= (pinStart + experienceLength) && scrollY <= (pinStart + experienceLength + windowHeight)
+            else if (scrollY >= (pinStart + experienceLength) && scrollY <= (pinStart + experienceLength + windowHeight)) {
 
                 const percentage = (100 - ((scrollY - (pinStart + experienceLength)) / window.innerHeight) * 100);
 
                 const clamped = Math.max(0, Math.min(percentage, 100)); // keep between 0–100
 
+                firstExperienceEl.style.zIndex = "18";
                 firstExperienceEl.style.maskImage = `linear-gradient(to bottom, black ${clamped}%, transparent ${clamped}%)`;
                 firstExperienceEl.style.webkitMaskImage = `linear-gradient(bottom, black ${clamped}%, transparent ${clamped}%)`;
+            }
+
+            //DURING Second Experience Residual Part
+            //  scrollY >= (pinStart + experienceLength + windowHeight) && scrollY >= (pinStart + (2*experienceLength))
+            else if(scrollY >= (pinStart + experienceLength + windowHeight) && scrollY >= (pinStart + (2*experienceLength))){
+                firstExperienceEl.style.maskImage = `linear-gradient(to bottom, black 0%, transparent 0%)`;
+                firstExperienceEl.style.webkitMaskImage = `linear-gradient(bottom, black 0%, transparent 0%)`;
+                firstExperienceEl.style.zIndex = "-2";
             }
        
         }
