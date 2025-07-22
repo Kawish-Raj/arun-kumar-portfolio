@@ -57,6 +57,17 @@
 .expImage {
     width: 400px;
     height: auto;
+    clip-path: polygon(20% 0%, 95% 0%, 75% 100%, 0% 100%);
+    animation: trapezoid 3s ease-in-out infinite alternate;
+}
+
+@keyframes trapezoid {
+  0% {
+    clip-path: polygon(20% 0%, 95% 0%, 75% 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(25% 0%, 100% 0%, 80% 100%, 5% 100%);
+  }
 }
 
 /********* Heading *************/
