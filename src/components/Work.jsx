@@ -25,17 +25,17 @@ export default function Work({ setIsMainContent }) {
             const pinStart = offsetTop;
             // const pinEnd = offsetTop + workComponent.getBoundingClientRect().height;
             const noOfExperiences = 3;
-            const experienceLength = workComponent.getBoundingClientRect().height/noOfExperiences;
+            const experienceLength = workComponent.getBoundingClientRect().height / noOfExperiences;
             const windowHeight = window.innerHeight;
             const residueLength = experienceLength - windowHeight;
-            
-            console.log("experience length: ",experienceLength)
+
+            console.log("experience length: ", experienceLength)
             console.log("container length: ", workComponent.getBoundingClientRect().height);
             console.log("window height", window.innerHeight);
 
             //BEFORE first heading
             //  scrollY < pinStart
-            if(scrollY < pinStart) {
+            if (scrollY < pinStart) {
                 firstHeadingEl.style.maskImage = `radial-gradient(circle, black 100%, transparent 100%)`;
                 firstHeadingEl.style.webkitMaskImage = `radial-gradient(circle, black 100%, transparent 100%)`;
             }
@@ -58,7 +58,7 @@ export default function Work({ setIsMainContent }) {
 
             //DURING First Experience Residual Part
             //  scrollY >= (pinStart + windowHeight) && scrollY <= (pinStart + experienceLength)
-            else if(scrollY >= (pinStart + windowHeight) && scrollY <= (pinStart + experienceLength)){
+            else if (scrollY >= (pinStart + windowHeight) && scrollY <= (pinStart + experienceLength)) {
                 firstHeadingEl.style.maskImage = `radial-gradient(circle, black 0%, transparent 0%)`;
                 firstHeadingEl.style.webkitMaskImage = `radial-gradient(circle, black 0%, transparent 0%)`;
                 firstHeadingEl.style.zIndex = "-1";
@@ -79,12 +79,12 @@ export default function Work({ setIsMainContent }) {
 
             //DURING Second Experience Residual Part
             //  scrollY >= (pinStart + experienceLength + windowHeight) && scrollY >= (pinStart + (2*experienceLength))
-            else if(scrollY >= (pinStart + experienceLength + windowHeight) && scrollY >= (pinStart + (2*experienceLength))){
+            else if (scrollY >= (pinStart + experienceLength + windowHeight) && scrollY >= (pinStart + (2 * experienceLength))) {
                 firstExperienceEl.style.maskImage = `linear-gradient(to bottom, black 0%, transparent 0%)`;
                 firstExperienceEl.style.webkitMaskImage = `linear-gradient(bottom, black 0%, transparent 0%)`;
                 firstExperienceEl.style.zIndex = "-2";
             }
-       
+
         }
 
         window.addEventListener('scroll', handleScroll, { passive: false });
@@ -101,13 +101,15 @@ export default function Work({ setIsMainContent }) {
             <div className={styles.stickyWorkContainer}>
                 <div className={styles.firstHeading}>
                     <h1>My Work</h1>
-                    <h1>and</h1> 
+                    <h1>and</h1>
                     <h1>Experience</h1>
                 </div>
                 <div className={styles.firstExperience}>
-                    <div className={styles.textContent}>
-                    <h1 className={styles.expHeading}>Experience 1</h1>
-                    <p className={styles.firstPara}>
+                    <div className={styles.colorPillar}></div>
+                    <div className={styles.expContainer}>
+                        <div className={styles.textContent}>
+                            <h1 className={styles.expHeading}>Experience 1</h1>
+                            <p className={styles.firstPara}>
                         Just writing whatever I want to.
                         I didn't want to use Lrem Impusm cause it's for
                         losers. I don't get it why it's popular when you can 
@@ -118,9 +120,10 @@ export default function Work({ setIsMainContent }) {
                         losers. I don't get it why it's popular when you can 
                         fill the paras with whatever you want. Just write anything and 
                         no one will notice cause its filler content my mate.</p>
-                    </div>
-                    <div className = {styles.imageContent}>
-                        Image Plcaeholder
+                        </div>
+                        <div className={styles.imageContent}>
+                            Image Plcaeholder
+                        </div>
                     </div>
                 </div>
                 <div className={styles.secondExperience}>
