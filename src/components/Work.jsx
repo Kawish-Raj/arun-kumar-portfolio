@@ -130,7 +130,25 @@ export default function Work({ setIsMainContent }) {
                     </div>
                 </div>
                 <div className={styles.secondExperience}>
-                    <h1 classname={styles.expHeading}>Kawish</h1>
+                    <div className={styles.colorPillar}></div>
+                    <div className={styles.expContainer}>
+                        <div className={styles.textContent}>
+                            <h1 className={styles.expHeading}>2nd Experience</h1>
+                            <p className={styles.firstPara}>
+                        What was I going to write. A sentence. Two sentences. 
+                        Write this To the whole world. Still nah hypotheticaly scenario. 
+                        Bihar is the best state. Better than all of them. I am studying with 
+                        two idiots in RMIT building 8. </p>
+                    <p className={styles.secondPara}>Just writing whatever I want to.
+                        I didn't want to use Lrem Impusm cause it's for
+                        losers. I don't get it why it's popular when you can 
+                        fill the paras with whatever you want. Just write anything and 
+                        no one will notice cause its filler content my mate.</p>
+                        </div>
+                        <div className={styles.imageContent}>
+                            <img className={styles.expImage} src={papaSitting} alt='sir playing image'></img>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
