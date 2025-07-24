@@ -5,7 +5,8 @@ import papaPlaying from "../assets/papa-images/papa-playing.jpg"
 import papaSitting from "../assets/papa-images/papa-sitting.jpg"
 import papaCutting from "../assets/papa-images/papa-cutting.jpg"
 import inspection from "../assets/papa-images/inspection.jpg"
-import schoolRoses from "../assets/papa-images/schoolroses.jpg"
+import is from "../assets/papa-images/is.jpg"
+import ribbionSecond from "../assets/papa-images/ribbionsecond.jpg"
 
 export default function Work({ setIsMainContent }) {
 
@@ -189,8 +190,8 @@ export default function Work({ setIsMainContent }) {
                                 no one will notice cause its filler content my mate.</p>
                         </div>
                         <div className={styles.imageContent}>
-                            <img className={styles.expImage} src={papaPlaying} alt='sir playing image'></img>
-                            <img className={`${styles.expImageRightTilt} ${styles.expImage}`} src={inspection} alt='science fair inspection'></img>
+                            <img className={styles.expImage} src={is} alt='cbse head and is officer'></img>
+                            <img className={`${styles.expImageRightTilt} ${styles.expImage}`} src={ribbionSecond} alt='second ribbion cutting pic'></img>
                         </div>
                     </div>
                 </div>
