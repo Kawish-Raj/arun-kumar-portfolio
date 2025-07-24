@@ -23,13 +23,13 @@ export default function Work({ setIsMainContent }) {
         const workComponent = workComponentRef.current;
         const firstHeadingEl = workComponent.querySelector(`.${styles.firstHeading}`);
         const firstExperienceEl = workComponent.querySelector(`.${styles.firstExperience}`);
+        const secondExperienceEl = workComponent.querySelector(`.${styles.secondExperience}`);
 
         function handleScroll() {
             const scrollY = window.scrollY;
             const offsetTop = workComponent.offsetTop;
             const pinStart = offsetTop;
-            // const pinEnd = offsetTop + workComponent.getBoundingClientRect().height;
-            const noOfExperiences = 3;
+            const noOfExperiences = 4;
             const experienceLength = workComponent.getBoundingClientRect().height / noOfExperiences;
             const windowHeight = window.innerHeight;
             const residueLength = experienceLength - windowHeight;
@@ -80,10 +80,30 @@ export default function Work({ setIsMainContent }) {
 
             //DURING Second Experience Residual Part
             //  scrollY >= (pinStart + experienceLength + windowHeight) && scrollY >= (pinStart + (2*experienceLength))
-            else if (scrollY >= (pinStart + experienceLength + windowHeight) && scrollY >= (pinStart + (2 * experienceLength))) {
+            else if (scrollY >= (pinStart + experienceLength + windowHeight) && scrollY <= (pinStart + (2 * experienceLength))) {
                 firstExperienceEl.style.maskImage = `linear-gradient(to bottom, black 0%, transparent 0%)`;
                 firstExperienceEl.style.webkitMaskImage = `linear-gradient(bottom, black 0%, transparent 0%)`;
                 firstExperienceEl.style.zIndex = "-2";
+            }
+
+            //TRANSITION from Second Experience --> Third Experience
+            // scrollY >= (pinStart + (2 * experienceLength)) && scrollY <= (pinStart + (2 * experienceLength) + windowHeight)
+            else if (scrollY >= (pinStart + (2 * experienceLength)) && scrollY <= (pinStart + (2 * experienceLength) + windowHeight)) {
+                const percentage = (100 - ((scrollY - (pinStart + (2 * experienceLength))) / window.innerHeight) * 100);
+
+                const clamped = Math.max(0, Math.min(percentage, 100)); // keep between 0–100
+
+                secondExperienceEl.style.zIndex = "16";
+                secondExperienceEl.style.maskImage = `linear-gradient(to bottom, black ${clamped}%, transparent ${clamped}%)`;
+                secondExperienceEl.style.webkitMaskImage = `linear-gradient(bottom, black ${clamped}%, transparent ${clamped}%)`;
+            }
+
+            //During Thrid Experience Residual Part
+            // 
+            else if (scrollY >= (pinStart + (2 * experienceLength) + windowHeight) && scrollY <= (pinStart + (3 * experienceLength))) {
+                secondExperienceEl.style.maskImage = `linear-gradient(to bottom, black 0%, transparent 0%)`;
+                secondExperienceEl.style.webkitMaskImage = `linear-gradient(bottom, black 0%, transparent 0%)`;
+                secondExperienceEl.style.zIndex = "-3";
             }
 
         }
@@ -135,6 +155,28 @@ export default function Work({ setIsMainContent }) {
                     <div className={styles.expContainer}>
                         <div className={styles.textContent}>
                             <h1 className={styles.expHeading}>2nd Experience</h1>
+                            <p className={styles.firstPara}>
+                                What was I going to write. A sentence. Two sentences.
+                                Write this To the whole world. Still nah hypotheticaly scenario.
+                                Bihar is the best state. Better than all of them. I am studying with
+                                two idiots in RMIT building 8. </p>
+                            <p className={styles.secondPara}>Just writing whatever I want to.
+                                I didn't want to use Lrem Impusm cause it's for
+                                losers. I don't get it why it's popular when you can
+                                fill the paras with whatever you want. Just write anything and
+                                no one will notice cause its filler content my mate.</p>
+                        </div>
+                        <div className={styles.imageContent}>
+                            <img className={styles.expImage} src={papaPlaying} alt='sir playing image'></img>
+                            <img className={`${styles.expImageRightTilt} ${styles.expImage}`} src={inspection} alt='science fair inspection'></img>
+                        </div>
+                    </div>
+                </div>
+                <div className={styles.thirdExperience}>
+                    <div className={styles.colorPillar}></div>
+                    <div className={styles.expContainer}>
+                        <div className={styles.textContent}>
+                            <h1 className={styles.expHeading}>3rd Experience</h1>
                             <p className={styles.firstPara}>
                                 What was I going to write. A sentence. Two sentences.
                                 Write this To the whole world. Still nah hypotheticaly scenario.

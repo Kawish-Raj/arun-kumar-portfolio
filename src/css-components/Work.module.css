@@ -1,6 +1,6 @@
 .work {
     position:relative;
-    height: 360vh; /* 60 per screen */
+    height: 480vh; /* 60 per screen */
 }
 
 .stickyWorkContainer {
@@ -152,7 +152,17 @@
 
 
 /*********** Third Experience *************/
+.thirdExperience {
+    z-index: 14;
+    position: absolute;
+    top:0;
+    background-color: rgb(61, 102, 129);
+    color: rgb(213, 222, 221);
+}
 
+.thirdExperience .colorPillar {
+    background-color: rgb(213, 222, 221)
+}
 
 
 /*********** Fourth Experience *************/
